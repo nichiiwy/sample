@@ -1,0 +1,101 @@
+Create a variable named STOCK and assign it a value of AAPL
+STOCK="AAPL"
+
+Print the value of the variable out to the screen
+echo $STOCK
+
+Change the value of the variable STOCK to be the previous value with _US appended onto the end
+STOCK=$STOCK_US
+
+Create a new variable named PRICE with value 290.84
+PRICE=290.84
+
+Print out to the screen a sentence ‘The current price of is ’ where you call the variables and get their values
+echo The current price of $STOCK is $PRICE
+
+Create a variable named WHOAMI and assign it your current username. Do this in one command.
+WHOAMI=`logname`
+
+Using just $ and () assign a variable named SERVERTYPE by using the uname command
+SERVERTYPE=$(uname)
+
+Write a command to show to the screen the value of running the command assigned to SERVERTYPE
+echo $SERVERTYPE
+
+Assign a variable named CMD the command uname -i (not the value of running the command but the command itself)
+CMD="uname -i"
+
+Using echo and the variable CMD, show how you echo the value of CMD (not execute the command)
+echo $CMD
+
+Using echo and the variable CMD, print what the CMD returns when run to the screen
+echo $($CMD)
+
+Change directory to your home directory
+cd
+
+Create a directory named scripts
+mkdir scripts
+
+Print out your $PATH Value
+echo $PATH
+
+Append your newly created script directory to your path variable
+export PATH=$PATH:~/script
+
+Check you can see your new path appended to the end of the path variable
+echo $PATH
+
+If you have Algo1 still created from previous exercises, remove the directory structure and all files within it
+
+Make a directory named Payment1
+mkdir Payment1
+
+Within Payment1, make three directories named logs, configuration, and scripts
+mkdir Payment1/logs
+mkdir Payment1/configuration
+mkdir Payment1/scripts
+
+Within scripts, create an empty file named start.sh
+touch Payment1/scripts/start.sh
+
+Within configuration, create an empty file named instance.properties
+touch Payment1/configuration/instance.properties
+
+Give everyone permission to read the instance.properties file, but assign write and execute permissons only to yourself
+chmod u=rwx,g=r,o=r instance.properties
+
+Set permissions on the file start.sh so that everyone can execute and so that the group and owner can read and write
+chmod u=rw,g=rw,o=x start.sh
+
+Direct the output of man cat into a file in your home directory named cat.output
+----
+
+Change the permission of that file so everyone can read it but only the group can write and execute
+
+Go back to your home directory
+cd
+
+Prove your location
+pwd
+
+Remove the directory Payment1 along with all subdirectories
+rm -r Payment1
+
+Delete the cat.output file, but with a warning first to the user
+rm -ri cat.output
+
+Create a directory named temp
+mkdir temp
+
+Set a variable named MYTEMP that references the new temp directory you just created
+MYTEMP="TEMP"
+
+Run a command to see the value of the MYTEMP variable
+echo $MYTEMP
+
+Now set the value of $MYTEMP to nothing
+unset MYTEMP
+
+Remove the temp directory that you created
+rm -r temp
