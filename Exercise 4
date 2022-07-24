@@ -52,16 +52,21 @@ Create a new version of the logfile named noNewOrders.log that has everything ex
 Count how many words are in the noNewOrders.log.
 
 Show the last 5 lines of the noNewOrders.log to the screen.
+tail -n 5 noNewOrders.log
 
 Find all the messages relating to Apple in the original log file and show the first two lines to the screen.
 
 Add a soft link named fix to your fixGenerator script.
+ln -s fixGenerator.sh fix
 
 Tail the log file created looking for new orders only in your tail command. (This will not actually cause any updates to the screen because the log file is not currently being updated.)
+tail fixlog20220724174627.log
 
 Create a new directory named superLogs
+mkdir superlogs
 
 Copy everything in the logs directory into the superLogs directory.
+cp ./logs/ ./superlogs/
 
 Run a single grep command with an option on grep to count the number of messages for FB in the original log file that was created.
 
