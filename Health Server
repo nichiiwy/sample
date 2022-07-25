@@ -55,7 +55,7 @@ less yahoo.route
 22
 
 Create a soft link named route to your network route.
-ln -s route ./yahoo.com
+ln -s yahoo.route route
 
 Run a command to see all the network sockets on your server and output to a file named output in your home directory.
 touch output
