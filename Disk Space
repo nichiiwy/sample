@@ -53,7 +53,7 @@ Create another directory named disk_output in your home directory.
 mkdir disk_output
 
 Uncompress your tarball to the directory you just created.
-gunzip disk.tar.gz
+tar -xvf disk.tar.gz -C ~/disk_output
 
 Go back to your home directory and run a command to g-zip your disk_output directory. Ensure it recursively compresses everything.
 cd
