@@ -1,7 +1,10 @@
 Write a shell script which uses function to print hello world
 
-def greet(name)
-  print ("Hello "name", welcome to Wiley Edge!")
-name = "prem"
+In Linux:
 
-greet(prem)
+sayhelloworld()
+{
+echo Hello World
+}
+
+helloworld
