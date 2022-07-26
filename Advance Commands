@@ -19,10 +19,11 @@ Run a command to create a new log file named partialFills.log and add the partia
 grep "39=1" fills.log > partialfills.log
 
 Use awk to create a new file out of the partial fill log that has the following tags only: Symbol (55); orderID (11); side(54); fill price (31); fill quantity (32); execution id (17). Name the file parsedPartialFills.log and make sure you print the columns in the order listed here.
-awk '/55 11 54 31 32 17/{print}' partialFills.log > parsedPartialFills.log
+awk '{print $7, $9, $13, $10, $15, $16}' partialFills.log > parsedPartialFills.log
 
-Using an editor, remove the first part of every fix tag (so you are left with the value only) and turn the file into a comma separated list with no spaces. This is how you might have to get a file ready to send to a trader.
-
+Using an editor, remove the first part of every fix tag (so you are left with the value only) and turn the file into a comma separated list with no spaces. 
+This is how you might have to get a file ready to send to a trader.
+:%s/; /,/g
 
 In the file, add a row of column headers separated by commas. The headers should be Symbol, OrderID, Side, Price, Qty, and ExecID.
 i 
@@ -35,7 +36,8 @@ Make a copy of the cancels file and name it cancels2.log.
 cp logs/cancels.log logs/cancels2.log
 
 Open the cancels2.log file in an editor. Find the first symbol (tag 55) in the first line and add the letter A to the beginning of the value. (If it was 55=GOOG, it will become 55=AGOOG.)
-vi logs/cancel2.log then :%s/55=GOOG/55=GOOGA/
+vi logs/cancel2.log 
+:%s/55=WBAI/55=AWBAI/
 
 Run a difference between the original cancels file and the new file you just edited.
 diff cancels.log cancels2.log
