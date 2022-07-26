@@ -1,6 +1,4 @@
-Write a shell script which uses function to print hello world
-
-In Linux:
+Q1. Write a shell script which uses function to print hello world
 
 greet()
 {
@@ -8,3 +6,16 @@ echo Hello World
 }
 
 greet
+
+
+
+
+Q2. Create a script to summarize available disk space and present in a logical and readable fashion
+
+diskspace()
+
+{
+df -h
+}
+
+diskspace
