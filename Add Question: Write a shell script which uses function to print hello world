@@ -2,9 +2,9 @@ Write a shell script which uses function to print hello world
 
 In Linux:
 
-sayhelloworld()
+greet()
 {
 echo Hello World
 }
 
-helloworld
+greet
