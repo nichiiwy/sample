@@ -6,6 +6,7 @@ vi yourusername.sh
 > {
 > logname
 > }
+done
 
 What the current date is
 vi date.sh
@@ -13,6 +14,7 @@ vi date.sh
 > {
 > date +%Y.%m.%d
 > }
+done
 
 What the time is
 vi whattime.sh
@@ -20,6 +22,7 @@ vi whattime.sh
 >{
 > date +%Y.%m.%dT%T%Z
 >}
+done
 
 What their current working directory is
 vi currdirectory.sh
@@ -68,17 +71,12 @@ vi lottery.sh
 #! /bin/sh
 DAY=$(date +%F)
 shuf -n 5 -e {1..50} >   a2Winners$(date +%F).txt
-
 shuf -n 1 -e {1..10} >> a2Winners$(date +%F).txt
-
-
 
 FOUND=0
 COUNTER=0
-
 echo "Enter input"
 read USER_INPUT
-
 echo "Your ballot is ${USER_INPUT}"
 for i in `cat a2Winners$(date +%F).txt`
 do
@@ -110,15 +108,9 @@ There should be both uppercase and lowercase letters
 vi password.shh
 
 echo "enter the password"
-
-
 read password
-
-
 len="${#password}"
-
 if test $len -ge 8 ; then
-
     echo "$password" | grep -q [0-9]
      if test $? -eq 0 ; then
            echo "$password" | grep -q [A-Z]
@@ -127,16 +119,16 @@ if test $len -ge 8 ; then
                       if test $? -eq 0 ; then
                        echo "Strong password"
                    else
-                       echo "weak password include lower case char"
+                       echo "include lower case character"
                    fi
             else
-               echo "weak password include capital char" 
+               echo "include upper case character" 
             fi
      else
-       echo "please include the numbers in password it is weak password"   
+       echo "please include the numbers"   
      fi
 else
-    echo "password lenght should be greater than or equal 8 hence weak password"
+    echo "password lenght should be greater than or equal to 8 characters"
 
 fi
 
@@ -199,7 +191,11 @@ fi
 
 Activity 7
 Create a 10-question true or false quiz game in your script. Choose a topic of your liking for the questions!
+vi quiz.txt
+-- type quiz questions --
 
+vi quiz.sh
+#!/bin.sh
 clear
 score=0
 while IFS="#" read -r question choices answer
@@ -219,7 +215,6 @@ done <quiz.txt
 
 echo
 echo "Your Score is "$score"
-echo
 
 
 Activity 8
@@ -237,17 +232,38 @@ the max of the integers
 After performing the calculations, the program should display the following to the user:
 the values the user entered
 each of the calculations, using a phrase that identifies the value
+
+
+
 Activity 9
 Write a script that takes a file name as a parameter.
 
 If the file exists, print an error and return a code.
 If the file does not exist, create the file.
+
+vi file.sh
+
+#./bin/sh
+echo "Enter filename"
+read newfile1
+if [ -f "$newfile1" ]
+then
+        echo "Error, File exists"
+else
+        echo "File not found"
+        touch newfile1
+fi
+
+
 Activity 10
 Write a script that writes random numbers to a file (one number per line).
 
 The first parameter should be the file name.
 The second parameter is the number of lines to write.
 If the specified file already exists, display a relevant message and return a code.
+
+
+
 Activity 11
 Create a file that includes the following numbers.
 
