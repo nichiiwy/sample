@@ -1,0 +1,52 @@
+Create a simple shell script to tell the user about their session – they need to know:
+
+What their username is
+yourusername()
+> {
+> logname
+> }
+
+What the current date is
+date()
+> {
+> date +%Y.%m.%d
+> }
+
+What the time is
+whatisthetime()
+>{
+> date +%Y.%m.%dT%T%Z
+>}
+
+What their current working directory is
+currentdirectory()
+> {
+> pwd
+> }
+
+
+How many files they have in that directory
+howmanyfiles()
+> {
+> ls | wc -l
+> }
+
+What is the biggest file in their current directory
+biggestfile()
+> {
+> du -hsx * | sort -rh | head -1
+> }
+
+
+
+Activity 2
+Create a directory with a few test files in it (the files can be empty). Now write a script that for every file in that directory you rename it to have an extension of today's date in YYYYMMDD format.
+mkdir testfile
+cd testfile
+touch file1 file2 file3
+
+DAY=$(date +%F)
+for FILE in *.txt
+ do
+    mv $FILE ${DAY}-${FILE}
+ done
