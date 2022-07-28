@@ -2,7 +2,7 @@ Create a simple shell script to tell the user about their session – they need 
 
 What their username is
 vi yourusername.sh
-#! /bin/sh
+#!/bin/sh
 > {
 > logname
 > }
@@ -10,7 +10,7 @@ done
 
 What the current date is
 vi date.sh
-#! /bin/sh
+#!/bin/sh
 > {
 > date +%Y.%m.%d
 > }
@@ -18,7 +18,7 @@ done
 
 What the time is
 vi whattime.sh
-#! /bin/sh
+#!/bin/sh
 >{
 > date +%Y.%m.%dT%T%Z
 >}
@@ -26,7 +26,7 @@ done
 
 What their current working directory is
 vi currdirectory.sh
-#! /bin/sh
+#!/bin/sh
 > {
 > pwd
 > }
@@ -34,14 +34,14 @@ vi currdirectory.sh
 
 How many files they have in that directory
 vi howmanyfiles.sh
-#! /bin/sh
+#!/bin/sh
 > {
 > ls | wc -l
 > }
 
 What is the biggest file in their current directory
 vi biggestfile.sh
-#! /bin/sh
+#!/bin/sh
 > {
 > du -hsx * | sort -rh | head -1
 > }
@@ -55,7 +55,7 @@ cd testfile
 touch file1 file2 file3
 
 vi rename.sh
-#! /bin/sh
+#!/bin/sh
 DAY=$(date +%F)
 for FILE in *.txt
  do
@@ -68,7 +68,7 @@ You are in charge of creating a program for the lottery in your area! The option
 Create another script that will allow users to check their lottery numbers and advise them if they match or not and how many matches they got.
 
 vi lottery.sh
-#! /bin/sh
+#!/bin/sh
 DAY=$(date +%F)
 shuf -n 5 -e {1..50} >   a2Winners$(date +%F).txt
 shuf -n 1 -e {1..10} >> a2Winners$(date +%F).txt
@@ -106,6 +106,7 @@ The password should contain numbers and letters
 There should be both uppercase and lowercase letters
 
 vi password.shh
+#!/bin/sh
 
 echo "enter the password"
 read password
@@ -172,9 +173,9 @@ fi
 
 
 Create a second version of the script that then tells the user the difference between the two numbers.
+
 vi diff.sh
 #!/bin/sh
-
 echo "enter two numbers";
 read a b;
 echo "a=$a";
@@ -237,7 +238,6 @@ each of the calculations, using a phrase that identifies the value
 
 Activity 9
 Write a script that takes a file name as a parameter.
-
 If the file exists, print an error and return a code.
 If the file does not exist, create the file.
 
