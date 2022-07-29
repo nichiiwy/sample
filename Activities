@@ -99,11 +99,7 @@ fi
 
 
 Activity 4
-Write a script to validate how secure someone's password is. Things you would care about:
-
-Length should be 8 or more characters
-The password should contain numbers and letters
-There should be both uppercase and lowercase letters
+Write a script to validate how secure someone's password is. Things you would care about: Length should be 8 or more characters. The password should contain numbers and letters. There should be both uppercase and lowercase letters
 
 vi password.shh
 #!/bin/sh
@@ -153,6 +149,7 @@ a=`expr $a / 10`
 done
 echo "$rev"
 
+
 Activity 6
 Create a script that takes two number parameters a and b and then shows True if a is larger than b or False otherwise.
 vi largerthan.sh
@@ -169,8 +166,7 @@ else
 fi
 
 
-
-Create a second version of the script that then tells the user the difference between the two numbers.
+Part B) Create a second version of the script that then tells the user the difference between the two numbers.
 
 vi diff.sh
 #!/bin/sh
@@ -190,10 +186,10 @@ fi
 
 Activity 7
 Create a 10-question true or false quiz game in your script. Choose a topic of your liking for the questions!
+
 vi quiz.sh
 
 #!/bin/sh
-
 score=0
 qnum=0
 points=0
@@ -266,10 +262,27 @@ fi
 
 Activity 10
 Write a script that writes random numbers to a file (one number per line).
-
 The first parameter should be the file name.
 The second parameter is the number of lines to write.
 If the specified file already exists, display a relevant message and return a code.
+
+vi numfile.sh
+
+#!/bin/sh
+
+echo "Filename?"
+read filename
+
+if [ -f "$filename" ]
+then
+	echo "Error, file exists"
+else
+	echo "How many lines to write?"
+	read lines
+	shuf -n $lines -e {1..10}>> $filename.txt
+		
+fi
+
 
 
 
@@ -282,6 +295,11 @@ Write a script that uses this file to perform the following tasks:
 Read in the file
 Sort the numbers into reverse order and output them to the screen
 Each number should output exactly once. Duplicate numbers should not appear in the output.
+
+
+
+
+
 Activity 12
 Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. The file names should be specified as parameters. You will need to create the files to test this.
 
