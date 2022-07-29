@@ -303,8 +303,6 @@ Each number should output exactly once. Duplicate numbers should not appear in t
 
 
 
-
-
 Activity 12
 Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. 
 The file names should be specified as parameters. 
@@ -331,31 +329,8 @@ fi
 
 Activity 13
 Write a script that takes two files of unique numbers and displays the difference between the two lists (without using grep).
+
 vi comp.sh
-
-
-For example:
-File 1 contains:
-
-1
-2
-4
-6
-File 2 contains:
-
-1
-2
-89
-6
-7
-The output should look like:
-Only in file 1:
-4
-Only in file 2:
-89
-7
-
-
 #!/bin/sh
 
 read input1 input2
@@ -372,18 +347,21 @@ comm -13 file3 file4
 Stretch: Create a new script that does the same thing using grep. Which script runs faster?
 
 
-
-
-
 Activity 14
 In the materials folder on the server you will find a file called books. Copy this file to your home directory.
-
 Write a script that will parse the file, producing an output csv file that will list the word and each time it appears in the file.
-
-Make sure the list is sorted in the file such that the most common word is listed at the top and then descending. For example, a couple of lines in the output file should look like this:
-
+Make sure the list is sorted in the file such that the most common word is listed at the top and then descending. 
+For example, a couple of lines in the output file should look like this:
 And,200
 Is,195
+
+vi parse.sh
+#!/bin/sh
+sed -e  's/[^A-Za-z]/ /g' books.txt | tr 'A-Z' 'a-z' | tr ' ' '\n' | grep -v '^$'| sort | uniq -c | sort -rn > books.csv
+
+
+
+
 Activity 15
 Imagine that you support the fix Generator script. Write a wrapper script to set up your environment properly. You can also edit the fixGenerator script if you need to.
 
@@ -396,6 +374,12 @@ Once complete, add a cron job that will run Monday through Friday 6 a.m. to esta
 
 Remember to code defensively and ensure that you use exit codes so we know the job has successfully run. Your script should also output its own log file where we can see the status each step of the way of each part of the script.
 
+
+
+
+
+
+
 Activity 16
 Write a script that will output a csv that could be loaded into ITRS Geneos for monitoring on your fixGen script.
 
@@ -403,16 +387,23 @@ It needs to parse the log file and produce a count of each message type that has
 Ensure you distinguish in the csv file if the message was sent or received.
 Also ensure you display the message type in English so it is easy to understand in monitoring. An example might look like:
 Number of Partial fills,12
+
+
+
+
 Activity 17
 Create a script to convert your fix log file into a useful csv.
 
 Pull out the following information for each message:
-
 If the fix tag is in the message, leave a blank in the csv so that it will load appropriately in Excel.
 Translate the message type value into meaningful words.
 Ensure you have a header row in your csv file:
 Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price 
 Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price
+
+
+
+
 
 Activity 18
 Run the fixGenerator script to generate a fix log file.
