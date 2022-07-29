@@ -239,6 +239,8 @@ After performing the calculations, the program should display the following to t
 the values the user entered
 each of the calculations, using a phrase that identifies the value
 
+XXXXXXXXXXXXX
+
 
 
 Activity 9
@@ -258,6 +260,7 @@ else
         echo "File not found"
         touch newfile1
 fi
+
 
 
 Activity 10
@@ -290,6 +293,8 @@ Activity 11
 Create a file that includes the following numbers.
 
 5 6 3 7 4 4 9 6 7 9 8 2 3 6 4 5 1 1 3 10 12
+vi array.txt
+
 Write a script that uses this file to perform the following tasks:
 
 Read in the file
@@ -301,13 +306,35 @@ Each number should output exactly once. Duplicate numbers should not appear in t
 
 
 Activity 12
-Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. The file names should be specified as parameters. You will need to create the files to test this.
+Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. 
+The file names should be specified as parameters. 
+You will need to create the files to test this.
+
+#!/bin/sh
+touch file1
+touchfile2
+
+echo "file 1 ?"
+read input1
+echo "file2 ?"
+read input2
+
+if [$file1==$file2];
+then
+        echo "the files are the same"
+else
+        echo "the files share the following similarities"
+        grep -Fxf $input1 $input2
+fi
+
+
 
 Activity 13
 Write a script that takes two files of unique numbers and displays the difference between the two lists (without using grep).
+vi comp.sh
+
 
 For example:
-
 File 1 contains:
 
 1
@@ -322,14 +349,31 @@ File 2 contains:
 6
 7
 The output should look like:
-
 Only in file 1:
 4
-
 Only in file 2:
 89
 7
+
+
+#!/bin/sh
+
+read input1 input2
+
+cat $input1|sort -n|uniq > file3
+cat $input2|sort -n|uniq > file4
+
+echo "Only in file1"
+comm -13 file4 file3
+
+echo "Only in file2"
+comm -13 file3 file4
+
 Stretch: Create a new script that does the same thing using grep. Which script runs faster?
+
+
+
+
 
 Activity 14
 In the materials folder on the server you will find a file called books. Copy this file to your home directory.
