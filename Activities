@@ -151,7 +151,7 @@ temp=`expr $rev \* 10`
 rev=`expr $temp + $sd`
 a=`expr $a / 10`
 done
-echo "Reverse of $or is $rev"
+echo "$rev"
 
 Activity 6
 Create a script that takes two number parameters a and b and then shows True if a is larger than b or False otherwise.
@@ -159,10 +159,8 @@ vi largerthan.sh
 #!/bin/sh
 echo "enter two numbers";
 read a b;
-
 echo "a=$a";
 echo "b=$b";
-
 if [ $a \> $b ];
 then
     echo "a is greater than b";
@@ -182,7 +180,7 @@ echo "a=$a";
 echo "b=$b";
 if [ $a \> $b ];
 then
-        count=$(expr $a - $b)
+        count=$( expr $a - $b)
         echo "$count"
 else
         count=$( expr $b - $a)
@@ -192,30 +190,41 @@ fi
 
 Activity 7
 Create a 10-question true or false quiz game in your script. Choose a topic of your liking for the questions!
-vi quiz.txt
--- type quiz questions --
-
 vi quiz.sh
-#!/bin.sh
-clear
-score=0
-while IFS="#" read -r question choices answer
-do
-        echo
-        echo $question
-        echo
-        echo $choices
-        echo
-        echo "Your answer:\c"
-        read student_asnwer <dev/tty
-        if [ "$student_answer" = "$answer" ]; then
-                score=`expr $score + 1`
-        fi
-        clear
-done <quiz.txt
 
-echo
-echo "Your Score is "$score"
+#!/bin/sh
+
+score=0
+qnum=0
+points=0
+
+letqnum=$qnum+1
+echo "This is question1"
+echo "What does YT stand for?"
+read answer
+echo "The answer is: Youtube"
+cananswer="Youtube"
+if [ $answer==$cananswer ]
+then 
+	let points=$points+1
+	echo "You got 1 point"
+fi
+let qnum=$qnum+1
+echo 
+echo "This is question2"
+echo "Who is the basketball player MJ?"
+read answer
+echo "The answer is: Michael Jordan"
+cananswer="MichaelJordan"
+if [ $answer==$cananswer ]
+then
+	let points=$points+1
+fi
+
+#Scoring
+
+let score=$points
+echo "Your score is $points"
 
 
 Activity 8
