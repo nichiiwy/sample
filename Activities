@@ -236,10 +236,62 @@ the sum of the integers
 the min of the integers
 the max of the integers
 After performing the calculations, the program should display the following to the user:
-the values the user entered
-each of the calculations, using a phrase that identifies the value
+the values the user entered each of the calculations, using a phrase that identifies the value
 
-XXXXXXXXXXXXX
+#!/bin/sh
+
+read input1
+read input2
+read input3
+read input4
+read input5
+
+product=`expr $input1 \* $input2 \* $input3 \* $input4 \* $input5`
+sum=`expr $input1 + $input2 + $input3 + $input4 + $input5`
+
+count=5
+
+for i in {1..5};
+do
+	
+	echo "more numbers ?"
+	read inputi 
+	re='^[0-9]+$'
+	if ! [[ $input1 =~ $re ]];
+	then
+   		echo "error: Not a number" >&2; exit 1
+	else
+		count=$count+1 
+	fi
+ 
+product=`expr $product \* $inputi`
+sum=`expr $sum + $inputi` 
+average=`expr $sum / $count`
+
+	for i in input1 input2 input3 input4 input5
+	do
+	    if [[ $number -gt $max ]]; 
+	    then
+		max=$number
+	    fi
+	done
+
+	for i in input1 input2 input3 input4
+	do
+	    if [ $number -lt $min ]; then
+		min=$number
+	    fi
+	done
+
+done 
+
+echo "the product is $product"
+echo "the average is $average"
+echo "the sum is $sum"
+echo "the min is $min"
+echo "the max is $max"
+
+
 
 
 
