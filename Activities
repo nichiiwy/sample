@@ -524,7 +524,9 @@ Also ensure you display the message type in English so it is easy to understand 
 Number of Partial fills,12
 
 
-cat fixlog | grep "35=[A\-Za\-z\\d]"
+cat fixlog20220801125254.log | grep "35=[A-Za-z\\d]" > monitoring.txt
+
+
 
 
 
@@ -539,7 +541,10 @@ Client, Message type, stock, quantity, price, side, order id, last quantity, exe
 
 
 
+vi useful.sh
+#!/bin/sh
 
+sed -i -e '1i"Client","Message type","stock","quantity","price","side","order id","last quantity","exec id","last price" ' useful.csv
 
 
 
