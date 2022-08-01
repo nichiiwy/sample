@@ -70,12 +70,12 @@ Create another script that will allow users to check their lottery numbers and a
 vi lottery.sh
 #!/bin/sh
 DAY=$(date +%F)
-shuf -n 5 -e {1..50} >   a2Winners$(date +%F).txt
-shuf -n 1 -e {1..10} >> a2Winners$(date +%F).txt
+shuf -n 5 -e {1..50} >   List$(date +%F).txt
+shuf -n 1 -e {1..10} >> List1$(date +%F).txt
 
 FOUND=0
 COUNTER=0
-echo "Enter input"
+echo "Number?"
 read USER_INPUT
 echo "Your ballot is ${USER_INPUT}"
 for i in `cat a2Winners$(date +%F).txt`
@@ -189,6 +189,7 @@ Create a 10-question true or false quiz game in your script. Choose a topic of y
 
 vi quiz.sh
 
+
 #!/bin/sh
 score=0
 qnum=0
@@ -238,59 +239,87 @@ the max of the integers
 After performing the calculations, the program should display the following to the user:
 the values the user entered each of the calculations, using a phrase that identifies the value
 
-#!/bin/sh
-
-read input1
-read input2
-read input3
-read input4
-read input5
-
-product=`expr $input1 \* $input2 \* $input3 \* $input4 \* $input5`
-sum=`expr $input1 + $input2 + $input3 + $input4 + $input5`
-
-count=5
-
-for i in {1..5};
+#! /bin/sh
+i=1
+arr=()
+while (( i < 6 ))
 do
-	
-	echo "more numbers ?"
-	read inputi 
-	re='^[0-9]+$'
-	if ! [[ $input1 =~ $re ]];
+	echo "ENTER INPUT NUMBER ${i}"
+	read INP
+	arr+=($INP)
+	((i++))
+done
+
+echo ${arr[@]}
+echo "CONTINUE?(true/false)"
+
+read INP
+YES=${INP}
+
+while [ $YES == "true" ] && [ $i -lt "11" ]
+do
+	echo "ENTER ${i}"
+	read INP
+	arr+=($INP)
+	((i++))
+
+if (( "$i" < 11 ))
+
+then
+
+	echo "CONTINUE?(true/false)"
+
+	read INP
+
+	YES=${INP}
+
+fi
+
+done
+
+mult=1
+
+sum=0
+
+min=${arr[0]}
+
+max=${arr[0]}
+
+for ii in ${arr[@]}
+
+do
+
+	mult=$((mult*ii))
+
+	sum=$((sum+ii))
+
+if (( min > ii ))
+
 	then
-   		echo "error: Not a number" >&2; exit 1
-	else
-		count=$count+1 
-	fi
- 
-product=`expr $product \* $inputi`
-sum=`expr $sum + $inputi` 
-average=`expr $sum / $count`
 
-	for i in input1 input2 input3 input4 input5
-	do
-	    if [[ $number -gt $max ]]; 
-	    then
-		max=$number
-	    fi
-	done
+	min=$ii
 
-	for i in input1 input2 input3 input4
-	do
-	    if [ $number -lt $min ]; then
-		min=$number
-	    fi
-	done
+fi
 
-done 
+if (( max < ii ))
 
-echo "the product is $product"
-echo "the average is $average"
-echo "the sum is $sum"
-echo "the min is $min"
-echo "the max is $max"
+then
 
+max=$ii
+
+fi
+
+done
+
+echo "product is $mult"
+
+avg=$((sum/i))
+
+echo "average is $avg"
+
+echo "sum is $sum"
+
+echo "max is $max"
 
 
 
@@ -340,7 +369,6 @@ fi
 
 
 
-
 Activity 11
 Create a file that includes the following numbers.
 
@@ -352,6 +380,35 @@ Write a script that uses this file to perform the following tasks:
 Read in the file
 Sort the numbers into reverse order and output them to the screen
 Each number should output exactly once. Duplicate numbers should not appear in the output.
+
+
+#!/bin/sh
+
+inp=`cat array.txt`
+arr=($inp)
+l=${arr[*]}
+i=1
+arr=(`echo "${arr[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '`)
+swap=1
+while (swap==1)
+do
+	i=1
+	swap=0
+	while(i <= ${l-1})
+	do
+		if ((arr[${i-1}]<arr[$i])
+		then
+			temp=${arr[${i-1}]}
+			arr[${i-1}]=${arr[$i]}
+			arr[$1]=$temp
+			swap=1
+		fi
+		((i++))
+	done 
+done 
+
+echo ${arr[@]}
+exit 0
 
 
 
@@ -396,7 +453,7 @@ comm -13 file4 file3
 echo "Only in file2"
 comm -13 file3 file4
 
-Stretch: Create a new script that does the same thing using grep. Which script runs faster?
+
 
 
 Activity 14
@@ -426,9 +483,35 @@ Once complete, add a cron job that will run Monday through Friday 6 a.m. to esta
 
 Remember to code defensively and ensure that you use exit codes so we know the job has successfully run. Your script should also output its own log file where we can see the status each step of the way of each part of the script.
 
+vi wrapper.sh
+#!/bin/sh
 
+echo "Checking FixGen directory path"
+[ -d ~/FixGen ] && echo "Existed" || ( echo "folder does not exists, created" && mkdir ~/FixGen )
+echo "Checking FixGen/logs directory path"
+[ -d ~/FixGen/logs ] && echo "Existed" || ( echo "folder does not exists, created" && mkdir ~/FixGen/logs )
 
+find ~/FixGen/logs -name "fixlog*"
+find -name "fixlog*" | grep -o -E "[0-9]+" > temp.txt
+readarray -t a < sort temp.txt
+#cat temp.txt | readarray -t a
 
+IFS=$'\n' 
+sorted=($(sort <"${a[*]}"))
+unset IFS
+
+b=()
+i=0
+l=$(( ${#a[*]} - 4 ))
+for i in `seq 0 $l`; do b+=( fixlog${a[$i]}.log ); done
+
+gzip ${b[*]}
+
+~/fixGenerator.sh &
+
+------
+
+0 6 * * MON-FRI ~/FixGen/logs/fixGenerator.sh
 
 
 
@@ -441,17 +524,21 @@ Also ensure you display the message type in English so it is easy to understand 
 Number of Partial fills,12
 
 
+cat fixlog | grep "35=[A\-Za\-z\\d]"
+
 
 
 Activity 17
 Create a script to convert your fix log file into a useful csv.
-
 Pull out the following information for each message:
 If the fix tag is in the message, leave a blank in the csv so that it will load appropriately in Excel.
 Translate the message type value into meaningful words.
 Ensure you have a header row in your csv file:
 Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price 
 Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price
+
+
+
 
 
 
