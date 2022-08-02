@@ -1,0 +1,91 @@
+Normalization is the process of minimizing redundancy from a relation or set of relations. 
+Redundancy in relation may cause insertion, deletion and update anomalies. 
+So normalization it helps to minimize the redundancy in relations and normal forms(1NF, 2NF, 3NF) are used to eliminate or reduce redundancy in database tables.
+
+1NF: 
+If a relation contains a composite or multi-valued attribute, it violates the first normal form, or the relation is in first normal form if it does not contain any composite or multi-valued attribute. 
+A relation is in first normal form if every attribute in that relation is singled valued attribute. For example, an entry of multiple phone numers in one column violates the rule of 1NF Its decomposition into 1NF has been shown in table 2.
+
+2NF:
+Based on the concept of full functional dependency. 
+Second Normal Form applies to relations with composite keys, that is, relations with a primary key composed of two or more attributes. 
+To be in second normal form, a relation must be in first normal form and relation must not contain any partial dependency. 
+A relation is in 2NF if it has No Partial Dependency, i.e., no non-prime attribute (attributes which are not part of any candidate key) is dependent on any proper subset of any candidate key of the table.
+If a partial dependency exists, we remove the partially dependent attribute(s) from the relation by placing them in a new relation along with a copy of their determinant.
+
+For example: 
+Different courses can have the same course fees
+Course fees cannot decide the value of the course no or the student number
+Course fee is a non-prime attribute as it does not depend on the candidate key
+However, course fees depend on the course number which is a proper subset of the candidate key
+- a non-prime attirubute is dependent on a proper subset of the candidate key, wich is a partial dependency
+- to correct it, we have to split the table into two tables 
+
+3NF:
+2NF relations have less redundancy , they may still suffer from update anomalies. If we update only one tuple and not the other, the database would be in an inconsistent state. 
+
+Third Normal Form (3NF):
+A relation is in third normal form, if there is no transitive dependency for non-prime attributes as well as it is in second normal form.
+A relation is in 3NF if at least one of the following condition holds in every non-trivial function dependency X –> Y:
+The normalization of 2NF relations to 3NF involves the removal of transitive dependencies. 
+If a transitive dependency exists, we remove the transitively dependent attribute(s) from the relation by placing the attribute(s) in a new relation along with a copy of the determinant.
+
+Example: 
+Primary Key is the student no.
+Student no. depends on the student state
+Student State depends on student country
+-> student country is dependent on student no. which violates
+
+Decompose the tables into:
+Student No. 
+Student Country
+
+Third Normal Form (3NF) is considered adequate for normal relational database design because most of the 3NF tables are free of insertion, update, and deletion anomalies. 
+Moreover, 3NF always ensures functional dependency preserving and lossless.
+
+DeNormalization:
+Denormalization is a database optimization technique in which we add redundant data to one or more tables. This can help us avoid costly joins in a relational database. 
+It is an optimization technique that is applied after normalization.
+
+Basically, The process of taking a normalized schema and making it non-normalized is called denormalization, and designers use it to tune the performance of systems to support time-critical operations.
+In a traditional normalized database, we store data in separate logical tables and attempt to minimize redundant data. 
+The drawback is that if tables are large, we may spend an unnecessarily long time doing joins on tables. 
+Denormalization, then, strikes a different compromise. Under denormalization, we decide that we’re okay with some redundancy and some extra effort to update the database in order to get the efficiency advantages of fewer joins. 
+
+Pros of Denormalization:
+
+Retrieving data is faster since we do fewer joins
+Queries to retrieve can be simpler(and therefore less likely to have bugs), since we need to look at fewer tables
+
+---------------------------------------------
+
+ERD:
+ERDs are important tools in relational database design because they provide a visualization of the database structure. 
+They are useful at all levels of database administration processes, from creating the database through retrieving data from the database. 
+Provides the information needed to identify the structure of a relational database, including:
+
+- Table names
+- Field names
+- Key fields
+- Relationships between tables
+
+ER Diagrams are composed of:
+
+Entity
+A definable thing—such as a person, object, concept or event—that can have data stored about it. Think of entities as nouns. Examples: a customer, student, car or product. Typically shown as a rectangle.
+- Entity type: A group of definable things, such as students or athletes, whereas the entity would be the specific student or athlete.
+- Entity set: Same as an entity type, but defined at a particular point in time, such as students enrolled in a class on the first day
+- Entity categories: Entities are categorized as strong, weak or associative. 
+- Entity keys: Refers to an attribute that uniquely defines an entity in an entity set. (uper, candidate or primary)
+    - Super key: A set of attributes (one or more) that together define an entity in an entity set. 
+    - Candidate key: A minimal super key, meaning it has the least possible number of attributes to still be a super key. 
+    - Primary key: A candidate key chosen by the database designer to uniquely identify the entity set. 
+    - Foreign key: Identifies the relationship between entities.
+
+Attribute:
+A property or characteristic of an entity. Often shown as an oval or circle.
+
+Relationship
+How entities act upon each other or are associated with each other. 
+Relationships are typically shown as diamonds or labels directly on the connecting lines; one-to-one, one-to-many, and many-many.
+
