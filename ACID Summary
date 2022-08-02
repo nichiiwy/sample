@@ -1,12 +1,10 @@
 ACID Compliance: Only databases that are 'ACID' can handle all the errors and failures that can occur while protecting the quality of the data.
 
-Developers often mention ACID in the context of business data processing. It's vital because ACID guarantees that data is processed reliably and accurately. ACID also ensures the lowest possible risk of corruption or data loss in case of failures, such as power outages or computer crashes. ACID principles promise that a loss of power won't ruin your data itself.
+ACID is vital because ACID guarantees that data is processed reliably and accurately. 
+ACID also ensures the lowest possible risk of corruption or data loss in case of failures, such as power outages or computer crashes. 
+A company that relies on data processing cannot afford to have its operations interruptedand has to be able to recover its systems as quickly as possible if it happens
 
-If databases were not ACID-compliant, businesses wouldn't be able to trust their numbers. 
-A company that relies on data processing cannot afford to have its operations interrupted by a system crash and/or tt has to be able to recover its systems as quickly as possible if they do happen 
-Databases that implement ACID principles ensure that these companies have reliable access to their information.
-
-  ACID is an acronym for: Atomicity, Consistency, Isolation, Durability
+ACID is an acronym for: Atomicity, Consistency, Isolation, Durability
     Atomicity: A transaction must be completed in its entirety or not at all. If a transaction aborts, all operations up to that point must be completely nullified.
     Consistency: A transaction must transform a database from one consistent state to another consistent state. If any faolure occurs, must return the data toa state before the transaction was started. 
     Isolation: Each transaction must occur independently of other transactions occurring at the same time. I.e. You can query data while many other users are changing data and you will not see their changes, and they will not see each other’s changes.
