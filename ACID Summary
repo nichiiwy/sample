@@ -1,0 +1,36 @@
+ACID Compliance: Only databases that are 'ACID' can handle all the errors and failures that can occur while protecting the quality of the data.
+
+Developers often mention ACID in the context of business data processing. It's vital because ACID guarantees that data is processed reliably and accurately. ACID also ensures the lowest possible risk of corruption or data loss in case of failures, such as power outages or computer crashes. ACID principles promise that a loss of power won't ruin your data itself.
+
+If databases were not ACID-compliant, businesses wouldn't be able to trust their numbers. 
+A company that relies on data processing cannot afford to have its operations interrupted by a system crash and/or tt has to be able to recover its systems as quickly as possible if they do happen 
+Databases that implement ACID principles ensure that these companies have reliable access to their information.
+
+  ACID is an acronym for: Atomicity, Consistency, Isolation, Durability
+    Atomicity: A transaction must be completed in its entirety or not at all. If a transaction aborts, all operations up to that point must be completely nullified.
+    Consistency: A transaction must transform a database from one consistent state to another consistent state. If any faolure occurs, must return the data toa state before the transaction was started. 
+    Isolation: Each transaction must occur independently of other transactions occurring at the same time. I.e. You can query data while many other users are changing data and you will not see their changes, and they will not see each other’s changes.
+      Serializable – One user will not receive data until another user's changes are comitted 
+      Read Uncommitted – One uer will get her data right away, including whatever changes anothe ruser has has made that haven't been committed yet - "dirty read" 
+    Durability: Committed transactions must be fully recoverable in all but the most extreme circumstances. Write-ahead logs provide absolute data durability until data is eventually written into permanent data and index files.
+    
+    
+ACID is vital for both developers and users to ensure data reliability. Almost all modern databases conform to ACID principles.
+ 
+Real World Examples: 
+- ACID compliance prevents the paying out the same money twice due to inconsistent transaction processing. ACID-compliant database also prevents loss of deposited money due to inability to access transactions, conflicting updates, double-read records etc.
+- Personal medical data handling. Online, simultaeous updating of pateint charts without "isolation transactions" can wipe out each other’s changes. On the other hand, a loss of "Durability" might also cause the system to fail to record a medicinal prescription.
+
+Transaction Log:
+Every SQL server has a transaction log that records all transactions and data base modifications made by each transaction. If there is a failure, it will require the log to bring the systme back to a consistent state
+This log stored within the log file that is separate from the data file, and records all database modifications
+For example: when a user issues an INSERT, for example, it is logged in the transaction log. 
+This enables the database to roll back or restore the transaction if a failure were to occur and prevents data corruption. 
+
+For example, let’s say someone is using an application and inserts 100 rows of data. While SQL Server is processing this data the server crashes. Because the INSERT statement was writing to the transaction log and it knows a failure occurred it will roll back the statement. 
+If this wasn’t put in place, the user would have to to sift through the data to see how many rows it inserted and then change the code to insert the remaining rows, which could take a very long time. 
+
+
+
+Backup Strategy:
+Backup and recovery option for log files to prevent losing access to databases and customer data. Full back-ups tend to be large and are only done periodically, log backups tend to be much smaller 
