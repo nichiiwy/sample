@@ -72,7 +72,8 @@ Provides the information needed to identify the structure of a relational databa
 ER Diagrams are composed of:
 
 Entity
-A definable thing—such as a person, object, concept or event—that can have data stored about it. Think of entities as nouns. Examples: a customer, student, car or product. Typically shown as a rectangle.
+A definable thing—such as a person, object, concept or event—that can have data stored about it. 
+Examples: a customer, student, car or product. Typically shown as a rectangle.
 - Entity type: A group of definable things, such as students or athletes, whereas the entity would be the specific student or athlete.
 - Entity set: Same as an entity type, but defined at a particular point in time, such as students enrolled in a class on the first day
 - Entity categories: Entities are categorized as strong, weak or associative. 
