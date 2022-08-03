@@ -1,0 +1,25 @@
+select * from Exercise;
+select * from Client;
+select * from Client where City = "Metairie";
+select * from Client where ClientId = "818u7faf-7b4b-48a2-bf12-7a26c92de20c";
+select count(*) as numrows from Goal;
+select Name, LevelId from Workout;
+select Name, LevelId, Notes from Workout where LevelId = "2";
+select FirstName, LastName, City from Client where City = "Metairie"; select FirstName, LastName, City from Client where City = "Kenner"; select FirstName, LastName, City from Client where City = "Gretna"; 
+select FirstName, LastName, BirthDate from Client where BirthDate LIKE "198%";
+select FirstName, LastName, BirthDate from Client where BirthDate between "19800101" and "19891231";
+select count(*) from Login where EmailAddress LIKE "%.gov";
+select count(*) from Login where EmailAddress not like "%.com";
+select firstname, lastname from Client where BirthDate is null;
+Select Name from ExerciseCategory  where ParentCategoryId is not null; 
+select name, notes from Workout where LevelId ="3" and notes like "%you%";
+select firstName, lastName, city from `Client` where city = "LaPlace" and (lastname like "L%" or lastname like "M%" or lastname like "N%");
+select InvoiceId, Description, Price, Quantity, ServiceDate, (Price * Quantity) as lineitemtotal from InvoiceLineItem where (price*quantity) between "15" and "25";
+select clientid from Client where firstname = "Estrella" and lastname = "Bazely"; select * from Login where clientid = "87976c42-9226-4bc6-8b32-23a8cd7869a5";
+select Workoutid from Workout where name = "This is Parkour"; select Goalid from workoutgoal where workoutid = "12"; select name from Goal where (Goalid = "3" or  Goalid ="8" or Goalid = "15");
+
+
+
+
+
+
