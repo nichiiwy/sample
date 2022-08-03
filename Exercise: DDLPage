@@ -1,0 +1,70 @@
+create database if not exists MovieCatalogue;
+
+use MovieCatalogue; 
+
+create table if not exists Movie ( 
+MovieID int Primary Key Auto_Increment,
+GenreID int not null,
+DirectorID int not null,
+RatingID int not null,
+Title Varchar(128) not null,
+ReleaseDate date null
+);
+
+create table if not exists Genre (
+GenreID int Primary Key auto_increment,
+GenreName varchar(30) not null
+);
+
+create table if not exists Director (
+DirectorID int Primary Key Auto_Increment,
+Firstname varchar(30) not null,
+lastname varchar(30) not null,
+Birthdate date null
+);
+
+create table if not exists Rating (
+RatingID int Primary Key Auto_Increment,
+RatingName varchar (5) not null
+);
+
+create table Actor (
+ActorID int Primary Key Auto_Increment,
+Firstname varchar(30) not null,
+lastname varchar(30) not null,
+Birthdate date null
+);
+
+create table CastMembers (
+CastMemberID int Primary key auto_increment,
+ActorID int not null,
+MovieID int not null, 
+`Role` varchar(50) 
+);
+
+alter table Movie
+add constraint fk_GenreID
+foreign key (GenreID)
+references Genre(GenreID);
+
+alter table Movie
+add constraint fk_DirectorID
+foreign key (DirectorID)
+references Director(DirectorID);
+
+alter table Movie
+add constraint fk_RatingID
+foreign key (RatingID)
+references Rating(RatingID);
+
+alter table CastMembers
+add constraint fk_ActorID
+foreign key (ActorID)
+references Actor(ActorID);
+
+alter table CastMembers
+add constraint fk_MovieID
+foreign key (MovieID)
+references Movie(MovieID);
+
+
