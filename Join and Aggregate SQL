@@ -349,6 +349,13 @@ order by Exercise.Name, Unit.name, ExerciseCategory.name
 -- each Level.
 -- To calculate age in years, use the MySQL function DATEDIFF.
 -- 4 rows
+
+select level.name, MIN(DATEDIFF(CURDATE(), client.BirthDate) / 365) MinAge, MAX(DATEDIFF(CURDATE(), client.BirthDate) / 365)
+from level
+inner join workout on level.levelid = workout.levelid
+inner join clientworkout on workout.workoutid = clientworkout.workoutid
+inner join client on clientworkout.clientid = client.clientid
+group by level.LevelId, level.`Name`;
 --------------------
 
 -- Stretch Goal!
