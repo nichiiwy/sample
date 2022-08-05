@@ -1,0 +1,224 @@
+#Part1 Included in Dashboard submission
+
+#Part2/3/4
+create database if not exists hotel123;
+use hotel123;
+
+drop table if exists Reservation;
+drop table if exists Amenity;
+drop table if exists Room;
+drop table if exists RoomType;
+drop table if exists Guest;
+
+create table Guest (
+Phone varchar(20) primary key not null,
+FirstName varchar(30) not null,
+Lastname varchar(30) not null,
+Address varchar(30) not null,
+City Varchar(20) not null,
+State Varchar(2)not null,
+Zip INT(5)not null
+); 
+
+create table RoomType (
+RoomTypeName varchar(30) primary key not null,
+StandardOccupancy INT not null,
+MaxOccupancy int not null,
+ExtraPersonFee int 
+); 
+
+create table Room (
+RoomNumber INT primary key not null,
+RoomTypeName varchar(30),
+foreign key(RoomTypeName) 
+references RoomType(RoomTypeName),
+ADAAccessbile varchar(3) not null,
+BasePrice dec (6,2) not null
+); 
+ 
+create table Amenity (
+RoomNumber INT not null,
+AmenityName varchar(30) not null,
+primary key (RoomNumber, AmenityName),
+foreign key(RoomNumber)
+references Room(RoomNumber)
+);
+
+create table Reservation (
+RoomNumber INT not null,
+Phone varchar(20) not null,
+Adults int,
+Children int ,
+StartDate date not null,
+EndDate date not null,
+TotalRoomCost decimal (10,2) not null,
+primary key (RoomNumber, Phone, StartDate),
+foreign key (RoomNumber) 
+references Room(RoomNumber),
+foreign key (Phone)
+references Guest(Phone)
+);
+
+insert into RoomType values ('Double', 2 ,4 , 10);
+insert into RoomType values ('Single', 2 ,2 , null);
+insert into RoomType values ('Suite', 3, 8, 20);
+
+insert into Guest values('(857) 206-2182', 'Nick', 'Hii', '610 Beacon Street', 'Boston', 'MA', '02215');
+
+insert into Guest values('(291) 553-0508', 'Mack', 'Simmer', '379 Old Shore Street', 'Council Bluffs', 'IA', '51501');
+insert into Guest values('(478) 277-9632', 'Bettyann', 'Seery', '750 Wintergreen Dr.', 'Wasilla', 'AK', '99654');
+insert into Guest values('(308) 494-0198', 'Duane', 'Cullison', '9662 Foxrun Lane', 'Harlingen', 'TX', '78552');
+insert into Guest values('(214) 730-0298', 'Karie', 'Yang', '9378 W. Augusta Ave.', 'West Deptfort', 'NJ', '08096');
+insert into Guest values('(377) 507-0974', 'Aurore', 'Lipton', '762 Wild Rose Street', 'Saginaw', 'MI', '48601');
+insert into Guest values('(814) 485-2615', 'Zachery', 'Leuchtefeld', '7 Poplar Dr.', 'Arvada', 'CO', '80003');
+insert into Guest values('(279) 491-0960', 'Jeremiah', 'Pendergrass', '70 Oakwood St.', 'Zion', 'IL', '60099');
+insert into Guest values('(446) 396-6785', 'Walter', 'Holaway', '7556 Arrowhead St.', 'Cumberland', 'RI', '02864');
+insert into Guest values('(834) 727-1001', 'Wilfred', 'Vise', '77 West Surrey Street', 'Oswego', 'NY', '13126');
+insert into Guest values('(446) 351-6860', 'Maritza', 'Tilton', '939 Linda Rd.', 'Burke', 'VA', '22015');
+insert into Guest values('(231) 893-2755', 'Joleen', 'Tison', '87 Queen St.', 'Drexel Hill', 'PA', '19026');
+
+insert into Room values(201, 'Double', 'No', 199.99);
+insert into Room values(202, 'Double', 'Yes', 174.99);
+insert into Room values(203, 'Double', 'No', 199.99);
+insert into Room values(204, 'Double', 'Yes', 174.99);
+insert into Room values(301, 'Double', 'No', 199.99);
+insert into Room values(302, 'Double', 'Yes', 174.99);
+insert into Room values(303, 'Double', 'No', 199.99);
+insert into Room values(304, 'Double', 'Yes', 174.99);
+
+insert into Room values(205, 'Single', 'No', 174.99);
+insert into Room values(206, 'Single', 'Yes', 149.99);
+insert into Room values(207, 'Single', 'No', 174.99);
+insert into Room values(208, 'Single', 'Yes', 149.99);
+insert into Room values(305, 'Single', 'No', 174.99);
+insert into Room values(306, 'Single', 'Yes', 149.99);
+insert into Room values(307, 'Single', 'No', 174.99);
+insert into Room values(308, 'Single', 'Yes', 149.99);
+insert into Room values(401, 'Suite', 'Yes', 399.99);
+insert into Room values(402, 'Suite', 'Yes', 399.99);
+
+insert into Amenity values(201, 'Microwave');
+insert into Amenity values(201, 'Jacuzzi');
+insert into Amenity values(202, 'Refrigerator');
+insert into Amenity values(203, 'Microwave');
+insert into Amenity values(203, 'Jacuzzi');
+insert into Amenity values(204, 'Refrigerator');
+insert into Amenity values(205, 'Microwave');
+insert into Amenity values(205, 'Refrigerator');
+insert into Amenity values(205, 'Jacuzzi');
+insert into Amenity values(206, 'Microwave');
+insert into Amenity values(206, 'Jacuzzi');
+insert into Amenity values(207, 'Microwave');
+insert into Amenity values(207, 'Refrigerator');
+insert into Amenity values(207, 'Jacuzzi');
+insert into Amenity values(208, 'Microwave');
+insert into Amenity values(208, 'Jacuzzi');
+insert into Amenity values(301, 'Microwave');
+insert into Amenity values(301, 'Jacuzzi');
+insert into Amenity values(302, 'Refrigerator');
+insert into Amenity values(303, 'Microwave');
+insert into Amenity values(303, 'Jacuzzi');
+insert into Amenity values(304, 'Refrigerator');
+insert into Amenity values(305, 'Microwave');
+insert into Amenity values(305, 'Refrigerator');
+insert into Amenity values(305, 'Jacuzzi');
+insert into Amenity values(306, 'Microwave');
+insert into Amenity values(306, 'Jacuzzi');
+insert into Amenity values(307, 'Microwave');
+insert into Amenity values(307, 'Refrigerator');
+insert into Amenity values(307, 'Jacuzzi');
+insert into Amenity values(308, 'Microwave');
+insert into Amenity values(308, 'Jacuzzi');
+insert into Amenity values(401, 'Microwave');
+insert into Amenity values(401, 'Refrigerator');
+insert into Amenity values(401, 'Jacuzzi');
+insert into Amenity values(402, 'Microwave');
+insert into Amenity values(402, 'Refrigerator');
+insert into Amenity values(402, 'Jacuzzi');
+
+insert into Reservation values(308, '(291) 553-0508', 1, 0, '2023-02-02', '2023-02-04', 299.98);
+insert into Reservation values(203, '(478) 277-9632', 2, 1, '2023-05-02', '2023-10-02', 999.95);
+insert into Reservation values(305, '(308) 494-0198', 2, 0, '2023-02-22', '2023-02-24', 349.98);
+insert into Reservation values(201, '(214) 730-0298', 2, 2, '2023-03-06', '2023-03-07', 199.99);
+insert into Reservation values(307, '(808) 367-9860', 1, 1, '2023-03-17', '2023-03-20', 524.97);
+insert into Reservation values(302, '(377) 507-0974', 3, 0, '2023-03-18', '2023-03-23', 924.95);
+insert into Reservation values(202, '(814) 485-2615', 2, 2, '2023-03-29', '2023-03-31', 349.98);
+insert into Reservation values(304, '(279) 491-0960', 2, 0, '2023-03-31', '2023-04-05', 874.95);
+insert into Reservation values(301, '(446) 396-6785', 1, 0, '2023-04-09', '2023-04-13', 799.96);
+
+
+delete from Reservation 
+where 
+Phone = ( select (Phone) from Guest where firstname = "Jeremiah" and lastname = "Pendergrass");
+
+delete from Guest where firstname = 'Jeremiah' and lastname = 'Pendergrass';
+
+------------------------------------------------------------
+Queries:
+
+
+#1. Write a query that returns a list of reservations that end in July 2023, including the name of the guest, the room number(s), and the reservation dates.
+select reservation.roomnumber, firstname, lastname, startdate, enddate
+from Reservation
+inner join Guest on Reservation.Phone = Guest.phone
+where enddate like "2023-07%";
+
+#2. Write a query that returns a list of all reservations for rooms with a jacuzzi, displaying the guest's name, the room number, and the dates of the reservation.
+select guest.firstname, guest.lastname, reservation.roomnumber, startdate, enddate
+from Room
+inner join Reservation on Reservation.Roomnumber = Room.Roomnumber
+inner join Guest on Guest.phone = Reservation.phone
+inner join Amenity on Room.Roomnumber = Amenity.Roomnumber
+where Amenity.Amenityname = 'jacuzzi';
+
+#3. Write a query that returns all the rooms reserved for a specific guest, including the guest's name, the room(s) reserved, the starting date of the reservation, and how many people were included in the reservation. (Choose a guest's name from the existing data.)
+#Guestname = Mack Simmer
+select firstname, lastname, Room.Roomnumber, startdate, adults, children 
+from room
+inner join Reservation on Reservation.Roomnumber = Room.Roomnumber
+inner join Guest on Guest.phone = Reservation.phone
+where firstname = "Mack" and lastname = 'Simmer';
+
+
+#4. Write a query that returns a list of rooms, reservation ID, and per-room cost for each reservation. The results should include all rooms, whether or not there is a reservation associated with the room.
+select Room.Roomnumber, Reservation.phone, Guest.address, Room.baseprice
+from Room
+left join Reservation on Reservation.Roomnumber = Room.Roomnumber
+left join Guest on Guest.phone = Reservation.phone;
+
+
+#5. Write a query that returns all the rooms accommodating at least three guests and that are reserved on any date in April 2023.
+select Room.Roomnumber 
+from room
+inner join Reservation on Reservation.Roomnumber = Room.Roomnumber
+where startdate like "2023-04%" and (adults + children) >= 3;
+
+#6. Write a query that returns a list of all guest names and the number of reservations per guest, sorted starting with the guest with the most reservations and then by the guest's last name.
+select firstname, lastname, count(lastname) numberofreservations
+from Room
+inner join Reservation on Reservation.Roomnumber = Room.Roomnumber
+inner join Guest on Guest.phone = Reservation.phone
+group by firstname, lastname 
+order by Count(lastname) desc, lastname;
+
+#7. Write a query that displays the name, address, and phone number of a guest based on their phone number. (Choose a phone number from the existing data.)
+select firstname, lastname, address, guest.phone, count(lastname) numberofreservations
+from Room
+left join Reservation on Reservation.Roomnumber = Room.Roomnumber
+left join Guest on Guest.phone = Reservation.phone
+group by firstname, lastname
+having guest.phone = "(291) 553-0508";
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
