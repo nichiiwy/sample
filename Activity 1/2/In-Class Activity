@@ -1,0 +1,44 @@
+name = "Hero"
+age = "20"
+print("My name is " + (name), ", I am", (age), "years old")
+
+--------
+
+a = int(input("Enter a number larger than 100: "))
+b = int(input("Enter a number smaller than 10: "))
+
+if a > 100 and b < 10:    
+    numoftimes = a//b
+    print("The smaller number fits into the larger number", (numoftimes), "times.")
+
+else:
+    if a <= 100:
+        print ("Error, please enter a number greater than 100")
+        a = int(input("Enter a number larger than 100: "))
+    if b >= 10:
+        print("Error, please enter a number smaller than 10")
+        b = int(input("Enter a number smaller than 10: "))
+    numoftimes = a//b
+    print("The smaller number fits into the larger number", (numoftimes), "times.")
+  
+  
+--------
+
+num = int(input("Please enter 1, 2, or 3: "))
+if num == 1:
+    print("Thank you")
+elif num == 2:
+    print("Well done")
+elif num ==3:
+    print("Correct")
+else:
+    print("Error message")
+
+
+
+days = input("Number of days please: ")
+days = int(days)
+hours = days*24
+minutes = hours*60
+seconds = minutes*60
+print("There are", (hours), "hours", (minutes), "minutes", (seconds), "seconds in", (days), "number of days")
