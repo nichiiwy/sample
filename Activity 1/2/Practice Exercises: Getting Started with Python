@@ -1,0 +1,244 @@
+Activity 1
+Create a computer program that performs the following steps:
+
+Prompt the user for an integer and store the value in a variable.
+Display the data type of the variable that holds the entered data.
+Convert the value to an integer type and store the converted value in a new variable.
+Display the value and type of the new variable in a single sentence. (For example, "The value is 8 with type integer.")
+Run the program and enter a float value at the prompt. What is its value in the last step?
+
+x = (input("Input a value"))
+datatype = type(x)
+print (datatype)
+newint = int(x)
+print ("The value is", (x), "with type", (datatype00))
+
+
+Activity 2
+Write a computer program that calculates and displays the current value of a deposit for a given initial deposit, interest rate, how many times interest is calculated per year, and the number of years since the initial deposit.
+
+The program should prompt the user for each of the values and use the following formula to calculate the current value of the deposit:
+
+P = int(input("What is the intial Deposit : "))
+r = float(input("What is the interest rate as a fraction : "))
+n = int(input(What is the number of times per year the interest is calculated : "))
+t = int(input("How many years since the initial deposit : "))
+V = P(1 + r/n)^nt
+print ("The current value of the deposit is", (V))
+
+
+
+Activity 3
+Write a computer program that prompts the user for a principal amount, the rate of interest, and the number of days for a loan and then calculates and returns the simple interest for the life of the loan. Use the formula:
+principal = int(input("What is the principal amount : "))
+rate = float(input("What is the rate of interest : "))
+days = int(input("What is the number of days for a loan : "))
+interest = principal * rate * days / 365
+print ("The interest you will receive is", (interest))
+
+
+
+Activity 4
+Create a computer program that prompts the user for a purchase total and a sales tax rate and then returns the total price of the sale.
+total = int(input("What is the purchase total?: "))
+tax = float(input("What is the sales tax rate?: "))
+price = total*( 1+ (tax))
+print ("Your total price for the sale is", (price))
+
+
+Activity 5
+Create a computer program that displays three statements that evaluate to True and three statements that evaluate to False.
+
+a = 2
+b = 1
+a > b
+b < a
+b - a == -1
+
+a < b
+b > a
+b - a == 1
+
+
+Activity 6
+Write out the following program and run it using 4 as the first value and 10 as the second value.
+
+first = int(input("Input a number: "))
+second = int(input("Input another number: "))
+
+if first > second:
+    print((first), " is greater than " , (second))
+elif first < second:
+    print((second),  " is greater than " , (first))
+else:
+    print("They are the same number!")
+Run it a few more times with other values to identify the problem and then fix the code so that it works as expected.
+
+Activity 7
+Create a computer program that completes the following tasks:
+
+It prompts the user for a series of 5 integers.
+The user must be prompted for 5 numbers.
+After the fifth entry, the program stops prompting for values and performs the following calculations:
+the product of the integers
+the average of the integers
+the sum of the integers
+After performing the calculations, the program should display the following to the user:
+the values the user entered
+each of the calculations, using a phrase that identifies the value
+
+---------
+
+Activity 8
+x = int(input("Select the first number: "))
+y = int(input("Select a second number: "))
+z = int(input("Select a third number: "))
+w = int(input("Select a forth number: "))
+v = int(input("Select a fifth number: "))
+
+product = x*y*z*w*v
+sum = x + y + z + w + v
+average = (sum)/5
+
+print ("you entered the values", (x), (y), (z), (w), (v),)
+print ("The product is", (product), "The sum is", (sum), "The average is, (average)")
+
+----------
+
+Activity 9
+Create a computer program that asks the user a few True/False statements to which the user will respond either True or False.
+
+T = str(input("Oceans contain salt water"))
+F = str(input("Sharks are mammals"))
+
+
+if T == "True":
+    print ("You answered", T, "which is the correct answer!")
+else: 
+    print ("You answered", T, "which is the wrong answer! The correct answer is True")
+if F == "True" or F == "true":
+    print ("You answered", F, "which is the wrong answer! The correct answer is False")
+else: 
+    print ("You answered", F, "which is the correct answer!")
+
+-----------
+
+Activity 10
+Write a program that performs the following steps:
+
+addnum = int(input("What is your house number: "))
+street = str(input("What is the name of your street: "))
+Type = str(input("What is the type of your street: "))
+
+print ("Your full address is", (addnum), (street), (Type))
+print ("Your house number is", (addnum))
+print ("The street name is", (Type), (street))
+
+
+-----------
+
+Activity 11
+Write a program that performs the following steps:
+
+fname = str(input("What is your first name: "))
+lname = str(input("What is your last name: "))
+num = int(input("What is your house number: "))
+street = str(input("What is the name of your street: "))
+Type = str(input("What is the type of your street: "))
+State = str(input("What state do you live in"))
+Zip = int(input("What is your zipcode"))
+Phone = int(input("Phone number:"))
+    
+print ("Name:", (lname), (fname), "\nAddress", (num), (street), (Type), "in", (State), (Zip),"\nPhone number:", (Phone))
+
+change = str(input("Do you wish to edit your details? "))
+
+if change == "yes" or change == "Yes":
+    what = str(input("What item to change? "))
+    if what == "first name":
+        fname = str(input("What is your first name: "))
+    elif what == "last name":
+        lname = str(input("What is your last name: "))
+    elif what == "house number":
+        num = int(input("What is your house number: "))
+    elif what == "street name":
+        street = str(input("What is the name of your street: "))
+    elif what == " street type":
+        Type = str(input("What is the type of your street: "))
+    elif what == "state":
+        State = str(input("What state do you live in"))
+    elif what == "zip":
+        Zip = int(input("What is your zipcode"))
+    elif what == "phone number":
+        Phone = int(input("Phone number:"))
+if change == "no" or change == "No":
+    print ("No updates")
+    
+print ("Name:", (lname), (fname), "\nAddress", (num), (street), (Type), "in", (State), (Zip),"\nPhone number:", (Phone))
+
+----------
+
+Activity 12
+Write a program that allows a user to create a new Contact, including a first and last name, complete street address, city, state, zip, phone number, and email address.
+
+fname = str(input("What is your first name: "))
+lname = str(input("What is your last name: "))
+num = int(input("What is your house number: "))
+street = str(input("What is the name of your street: "))
+Type = str(input("Type of street: "))
+State = str(input("What state do you live in"))
+Zip = int(input("What is your zipcode"))
+Phone = int(input("Phone number:"))
+Email = str(input("Email Address: "))
+    
+print ("Name:", (lname), (fname), "\nAddress:", (num), (street), (Type), "in", (State), (Zip),"\nPhone number:", (Phone), "\nEmail Address: ", (Email))
+
+----------
+
+Activity 13
+Combine the previous two activities into a single program that performs the following steps:
+
+Prompt the user for complete Contact details for a new contact.
+Displays the Contact details entered by the user.
+Prompts the user to select a value to change.
+Updates the selected value with a new input value.
+
+fname = str(input("What is your first name: "))
+lname = str(input("What is your last name: "))
+num = int(input("What is your house number: "))
+street = str(input("What is the name of your street: "))
+Type = str(input("Type of street: "))
+State = str(input("What state do you live in"))
+Zip = int(input("What is your zipcode"))
+Phone = int(input("Phone number:"))
+Email = str(input("Email Address: "))
+    
+print ("Contact Details:\n", "Name:", (lname), (fname), "\nAddress:", (num), (street), (Type), "in", (State), (Zip),"\nPhone number:", (Phone), "\nEmail Address: ", (Email))
+
+
+change = str(input("Do you wish to edit your details? "))
+
+if change == "yes" or change == "Yes":
+    what = str(input("What item to change? "))
+    if what == "first name":
+        fname = str(input("What is your first name: "))
+    elif what == "last name":
+        lname = str(input("What is your last name: "))
+    elif what == "house number":
+        num = int(input("What is your house number: "))
+    elif what == "street name":
+        street = str(input("What is the name of your street: "))
+    elif what == " street type":
+        Type = str(input("What is the type of your street: "))
+    elif what == "state":
+        State = str(input("What state do you live in"))
+    elif what == "zip":
+        Zip = int(input("What is your zipcode"))
+    elif what == "phone number":
+        Phone = int(input("Phone number:"))
+    elif what == "email":
+        Email = str(input("Email Address: "))
+if change == "no" or change == "No":
+    print ("No updates")
+    
+print ("Contact Details:\n", "Name:", (lname), (fname), "\nAddress:", (num), (street), (Type), "in", (State), (Zip),"\nPhone number:", (Phone), "\nEmail Address: ", (Email))
