@@ -1,0 +1,95 @@
+Activity 1:
+
+integer = (input("Input a value"))
+print (type(integer))
+newint = int(integer)
+print ("The value is", (integer), "with type integer")
+
+Activity 2:
+result = (5 + 3) ** 2 * 9 
+print(result) # the output should be 576
+
+Activity 3
+Create a computer program that prompts the user for a float number and returns the integer portion of the floating number.
+
+x = float(input("Input a number : "))
+y = int(x)
+print (y)
+
+Activity 4
+Write a computer program that calculates and displays the current value of a deposit for a given initial deposit, interest rate, how many times interest is calculated per year, and the number of years since the initial deposit.
+The program should prompt the user for each of the values and use the following formula to calculate the current value of the deposit:
+
+P = int(input("What is the intial Deposit : "))
+r = float(input("What is the interest rate as a fraction : "))
+n = int(input(What is the number of times per year the interest is calculated : "))
+t = int(input("How many years since the initial deposit : "))
+V = P(1 + r/n)^nt
+print ("The current value of the deposit is", (V))
+
+Activity 5
+Write a computer program that prompts the user for a principal amount, the rate of interest, and the number of days for a loan and then calculates and returns the simple interest for the life of the loan. Use the formula:
+principal = int(input("What is the principal amount : "))
+rate = float(input("What is the rate of interest : "))
+days = int(input("What is the number of days for a loan : "))
+interest = principal * rate * days / 365
+print ("The interest you will receive is", (interest))
+
+Activity 6
+Create a computer program that displays three statements that evaluate to True and three statements that evaluate to False.
+
+a = 2
+b = 1
+a > b
+b < a
+b - a == -1
+
+a < b
+b > a
+b - a == 1
+
+
+
+
+Activity 7
+Create a computer program that prompts the user for a number and calculates the following:
+
+x = int(input("Select a number: "))
+print ("Youve selected", (x) )
+
+b = bool(x)
+print ("The boolean of your number is", (b))
+
+bi = bin(x)
+print ("The binary equivalent is", (bi))
+
+sr = x**(0.5)
+print ("The square root is", (sr))
+
+
+
+Activity 8
+
+x = int(input("Select the first number: "))
+y = int(input("Select a second number: "))
+z = int(input("Select a third number: "))
+w = int(input("Select a forth number: "))
+v = int(input("Select a fifth number: "))
+
+product = x*y*z*w*v
+sum = x + y + z + w + v
+average = (sum)/5
+
+print ("you entered the values", (x), (y), (z), (w), (v),)
+print ("The product is", (product), "The sum is", (sum), "The average is, (average)")
+
+
+Activity 9
+
+addnum = int(input("What is your house number: "))
+street = str(input("What is the name of your street: "))
+Type = str(input("What is the type of your street: "))
+
+print ("Your full address is", (addnum), (street), (Type))
+print ("Your house number is", (addnum))
+print ("The street name is", (Type), (street))
