@@ -12,7 +12,7 @@ print("Python is fun!\nPython is also easy.")
 # Display the text in quotation marks to an output block 
 # without moving any of the existing code to a different line
 print 
-("Python is fun!")
+("Python is fun!", end="")
 
 
 
@@ -49,7 +49,7 @@ print (output)
 # Display only the text Python is fun! to an output block 
 # without deleting any of the existing code
 print("Python is fun!")
-print("Python is also easy!")
+#print("Python is also easy!")
 
 Create a script that prompts the user for the name of the state where they were born and the name of the state where they live now. 
 Save each value in its own variable and display the input values to the user.
