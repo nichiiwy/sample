@@ -1,0 +1,66 @@
+Activity 1
+Write a program that asks the user how much money they have in their wallet. The program should output "You're rich!" if the user inputs $20 or more and "You're broke!" if the input is less than $20.
+
+money = int(input("How much money do you have?: "))
+
+if money > 20:
+    print ("Your rich!")
+else: 
+    print ("You're poor!")
+    
+    
+--------------
+
+Activity 2
+
+dogs = str(input("Do you own any dogs?: "))
+cat = str(input("Do you own any cats?: "))
+
+if dogs == "Yes" and cat == "Yes":
+    print ("You must really love pets!")
+else: 
+    print ("Maybe you need more pets.")
+    
+---------------
+
+Activity 3
+Create a computer program that asks the user a few questions to which the user will respond either True or False. Display all the questions with the correct answer and the user's answers at the end of the program, along with the user's the correct response rate (number of questions answered correctly/number of questions).
+
+
+MJ = (input("MJ is the best basketball player?: "))
+Lebron = (input("Lebron better than MJ: "))
+count = 0
+
+if MJ == "True" or "true":
+    count += 1
+elif MJ == "False":
+    count += 0
+elif Lebron == "True": 
+    count += 1
+elif Lebron == "False":
+    count += 0
+
+
+if count == 0:
+    rate = 0
+else: 
+    rate = 2/count
+    
+print ("You've answered", (count), "question correctly. Your first response was", (MJ), "and your second response was", (Lebron),". Your response rate is", (rate))
+    
+    
+Activity 4
+Write a program that uses elif to produce five different possible outcomes based on a single user input.
+
+g = str(input("What is the season right now?: "))
+if g == "fall" or g == "autumn":
+    print ("I bet the leaves are pretty")
+elif g == "winter":
+    print ("I hope you're ready for the snow")
+elif g == "spring":
+    print ("I can smell the flowers")
+elif g == "summer":
+    print ("Make sure your AC is working")
+else: 
+    print ("I don't recognize that season")
+    
