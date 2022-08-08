@@ -1,0 +1,32 @@
+Write a program that will calculate the cost of a custom cup of coffee at a gourmet coffee shop, based on the size of the cup, the type of coffee selected, and flavors that can be added to the coffee. It should complete the following steps:
+
+price = 0
+
+size = str(input("Do you want small, medium, or large? "))
+if size == "small":
+    price += 2
+elif size == "medium":
+    price += 3
+elif size == "large":
+    price += 4
+if coffee == "brewed":
+    price += 0
+elif coffee == "espresso":
+    price += 0.5
+elif coffee == "cold brew":
+    price += 1
+coffee = str(input("Do you want brewed, espresso, or cold press? "))
+syrup = str(input("Do you want a flavored syrup? (Yes or No)"))
+if syrup == "Yes":
+    flavour = str(input("Do you want hazelnut, vanilla, or caramel? "))
+    price += 0.5
+    print ("You asked for a", (size), "of", (coffee), "with",(flavour),"syrup")
+else:
+    print ("You asked for a", (size), "of", (coffee), "with", "no syrup")
+
+
+
+total = price*1.15
+final = round (total, 2)
+
+print ("Your cup of coffee costs", (price), "\n The price with a tip is" , (final))
