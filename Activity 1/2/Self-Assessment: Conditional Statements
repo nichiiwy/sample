@@ -1,0 +1,24 @@
+Your company has organized a morale event! They're hosting a picnic and field day in the park, and of course, they want to play games! Team games! Team building games!
+
+To do that they want to assign the attendees to certain teams based on their last name. They've already chosen the team names, but they want you to write a program that will sort each person into the correct team.
+
+
+lastname = str(input("What's your name: "))
+
+if lastname[0] == "A" or lastname[0] == "B" or lastname[0] == "C" or lastname[0] == "D":
+    team = "Red Dragons"
+elif lastname[0] == "E" or lastname[0] == "F" or lastname[0] == "G" or lastname[0] == "H":
+    team = "Dark Wizards"
+elif lastname[0] == "I" or lastname[0] == "J" or lastname[0] == "K" or lastname[0] == "L":
+    team = "Moving Castles"
+elif lastname[0] == "M" or lastname[0] == "N" or lastname[0] == "O" or lastname[0] == "P":
+    team = "Golden"
+elif lastname[0] == "T" or lastname[0] == "S" or lastname[0] == "R" or lastname[0] == "Q":
+    team = "Night Guards"
+else: 
+    team = "Black Holes"
+
+print ("What's your last name?", (lastname),"\n"
+"Aha! You're on the team", (team), "!\nGood luck in the games!")
+    
+    
