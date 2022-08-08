@@ -1,0 +1,21 @@
+Write a script that performs the following steps:
+
+Collect the following individual pieces of data from the user:
+First name
+Last name
+City where they live
+Their hourly wage
+The number of hours they work each week
+Present the collected information based on the data input in a format like:
+
+fname = str(input("first name: "))
+lname = str(input("last name: "))
+city = str(input("city you live in?: "))
+hour = int(input("What is your hourly wage: "))
+nhours = int(input("Number of hours worked?: "))
+
+perweek = hour*nhours
+month = perweek*30
+year = month*12
+
+print ("Hi", (fname), (lname), "How are you?\nI hope the weather is nice in", (city), "Based on the information you provided, you earn",  (perweek), "dollars per week, approximately", (month), "dollars per month, and", (year), "dollars per year.")
