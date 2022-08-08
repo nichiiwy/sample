@@ -27,28 +27,24 @@ Activity 3
 Create a computer program that asks the user a few questions to which the user will respond either True or False. Display all the questions with the correct answer and the user's answers at the end of the program, along with the user's the correct response rate (number of questions answered correctly/number of questions).
 
 
-MJ = (input("MJ is the best basketball player?: "))
-Lebron = (input("Lebron better than MJ: "))
+MJ = (input("MJ is the best basketball player? Please answer True or False: "))
+Lebron = (input("Lebron better than MJ? Please answer True or False: "))
 count = 0
 
-if MJ == "True" or "true":
+if MJ == "True" or MJ == "true":
     count += 1
-elif MJ == "False":
-    count += 0
-elif Lebron == "True": 
+
+    
+if Lebron == "True" or  Lebron == "true":
     count += 1
-elif Lebron == "False":
-    count += 0
 
 
-if count == 0:
-    rate = 0
-else: 
-    rate = 2/count
+rate = count/2
     
 print ("You've answered", (count), "question correctly. Your first response was", (MJ), "and your second response was", (Lebron),". Your response rate is", (rate))
     
-    
+----------------
+
 Activity 4
 Write a program that uses elif to produce five different possible outcomes based on a single user input.
 
