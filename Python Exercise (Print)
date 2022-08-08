@@ -1,3 +1,37 @@
 name = "Nick"
 introduction = "Hi, how are you doing? My name is "
 print (introduction + name)
+
+#2
+def test(a,b):
+    if a > 100 and b < 10:
+        number = a//b
+        return int(number)
+    else:
+        print ("Your first number has to be lower than 100 and your second number has to be lower than 10")
+
+
+
+
+time = float(input("Input time in days: "))
+day = time // (24 * 3600)
+time = time % (24 * 3600)
+hour = time // 3600
+time %= 3600
+minutes = time // 60
+time %= 60
+seconds = time
+print("d:h:m:s-> %d:%d:%d:%d" % (day, hour, minutes, seconds)
+
+#4 Ask the user to enter 1, 2 or 3. If they enter a 1, display the message “Thank you”, if they enter a 2, display “Well done”, if they enter a 3, display “Correct”. 
+If they enter anything else, display “Error message”.
+
+ x = int(input("Enter either 1,2 or3")
+    if x ==1:
+        print ("Thank you")
+        elif x ==2:
+            print ("Well done")
+            elif x == 3:
+                print ("Correct")
+     else:
+         print ("Error")
