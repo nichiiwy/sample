@@ -1,0 +1,39 @@
+#Nicholas #08/08/2022
+
+#Nicholas #08/08/2022
+
+price = 0
+
+size = str(input("Do you want small, medium, or large? "))
+if size == "small" or size == "Small":
+    price += 2
+elif size == "medium" or size == "Medium":
+    price += 3
+elif size == "large" or size == "Large":
+    price += 4
+else:
+    print ("Please enter one of the three sizes")
+    
+coffee = str(input("Do you want brewed, espresso, or cold press? "))
+if coffee == "brewed" or coffee == "Brewed":
+    price += 0
+elif coffee == "espresso" or coffee == "Espresso":
+    price += 0.5
+elif coffee == "cold press" or coffee == "Cold press":
+    price += 1
+else:
+    print ("Coffee type not recognized")
+    
+syrup = str(input("Do you want a flavored syrup? (Yes or No)"))    
+if syrup == "Yes" or syrup == "yes":
+    flavour = str(input("Do you want hazelnut, vanilla, or caramel? "))
+    price += 0.5
+    print ("You asked for a", (size), "cup of", (coffee), "with",(flavour),"syrup")
+else:
+    print ("You asked for a", (size), "cup of", (coffee), "with", "no syrup")
+
+tip = 0.15
+total = price*1.15
+final = round (total, 2)
+
+print ("Your cup of coffee costs", (price), "\nThe price with a tip is" , (final))
