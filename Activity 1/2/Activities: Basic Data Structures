@@ -1,0 +1,90 @@
+Activity 1
+Prompt the user to answer a series of 3-5 questions about themselves (such as their name, their age, their birthday, or where they live) and save the answers in a list. Display the results to the user.
+
+
+t = str(input("What is your age: "))
+u = str(input("When is your birthday: "))
+v = str(input("Where do you live: "))
+
+list = []
+list.append(t)
+list.append(u)
+list.append(v)
+
+print (list)
+
+----------
+
+Activity 2
+Present the user with an existing list of items (such as the list created in the previous activity) and prompt the user for 2-4 more items to add to the list. Update the list with the new items and display the updated list.
+
+list = ["Kobe", "Lebron", "michael jackson"]
+add = str(input("Add one name to the HOF: "))
+
+list.append(add)
+print (list)
+
+----------
+
+Activity 3
+Present the user with a list of 7-9 items (such as the list created in the previous activities) and prompt them to enter one item to delete from the list. Delete the named item from the list and display the updated list.
+
+list = ["Kobe", "Lebron", "michael jackson"]
+d = str(input("Select one item to remove from the hall of fame: "))
+print ([i for i in list if i != d])
+
+----------
+
+Activity 4
+Present the user with a list of 7-9 items (such as the list created in the previous activities) and prompt them to select one item from the list to update, along with the new value for that item. Change the item's value and display the new list to the user.
+
+list = ["Kobe", "Lebron", "michael jackson", "Duncan", "Shaq", "Kareem"]
+update = str(input("Select one name to change: "))
+new = str(input("Change to: "))
+
+for i in range(len(list)):
+    if list[i] == update:
+        list [i] = new
+        print (list)
+----------
+
+Activity 5
+Create four tuples:
+
+One tuple with a person's first name and last name
+A second tuple with the person's current profession
+A third tuple with the person's current address
+A fourth tuple with the person's previous address
+Combine all tuples into a new, single tuple that contains all items from the original tuples.
+
+first_last = ("firstname", "lastname")
+prof = ("Doctor",)
+address = ("21 Saint Street, Boston, MA",)
+padd = ("35 Saint Street, Carrboro, NC",)
+
+
+new = (first_last + address + prof + padd)
+print (new)
+
+Activity 6
+Using the final tuple from the previous activity, write a program that performs the following steps:
+
+Display the tuple to the user.
+Prompt the user to enter a value that should be changed.
+Prompt the user to enter the updated value for that item.
+Update the value and display the updated tuple to the user.
+
+first_last = ("firstname", "lastname")
+address = ("21 Saint Street, Boston, MA",)
+new = (first_last + address)
+y = list(new)
+
+update = str(input("Select one name to change: "))
+change = str(input("Change to: "))
+
+for i in range(len(new)):
+    if y[i] == update:
+        y [i] = change
+new = tuple(y)
+
+print(new)
