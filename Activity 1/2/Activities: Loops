@@ -90,54 +90,180 @@ print (fact)
 Activity 8
 Starting with the defined fruit_list in the code block below, update the script to perform the following tasks.
 
-Prompt the user to enter the name of a fruit.
-If the fruit is in fruit_list, display an appropriate message to the user and tell the user its index value in the list.
-If the fruit is not in fruit_list, display an appropriate message to the user and prompt them to try again.
-The script should repeat itself until the user enters a stop word at the prompt.
-Tip: It's always a good idea to tell the user how to end a loop!
+fruit_list = ["apple", "banana", "cherry", "gooseberry", "kumquat", "orange", "pineapple"]
 
-fruit_list = ["apple", "banana", "cherry", "gooseberry",
-"kumquat", "orange", "pineapple"]
+new_name = ''
+count = 0
+while new_name != 'stop':
+    new_name = input("Please enter a fruit, or enter 'quit': ")
+    if new_name in fruit_list:
+        for x in fruit_list:
+            if new_name == x:
+                count += 1
+            else:
+                count += 0
+        print (count)
 
- 
-# your code here
+
+
+---------
 Activity 9
 Create a script that asks the user for a variable number of values and displays the sum of those values to the user. The program should prompt the user for values until the user enters the word "quit" (uppercase or lowercase), display the values used in the calculation, and then display the total of those values.
 
+
+names = []
+
+# Set new_name to something other than 'quit'.
+new_name = ''
+
+sum = 0
+
+# Start a loop that will run until the user enters 'quit'.
+while new_name != 'quit':
+    new_name = input("Please enter a number, or enter 'quit': ")
+
+    if new_name != 'quit':
+        names.append(new_name)
+        sum += int(new_name)
+    
+
+print(sum)
+
+----------
 Activity 10
 Write a script that asks the user for an integer value and then displays the multiplication table of that input number from 1 through the integer squared.
+
+choice = int(input("Enter an integer: "))
+for i in range(1, ((choice)**2+1)):
+    product = i * choice
+    print ("The multiplication table is", (i), "x", (choice), "=", (product))
+    
+----------
 
 Activity 11
 Create a script that identifies all prime numbers between 0 and 100.
 
+for Number in range (1, 101):
+    count = 0
+    for i in range(2, (Number//2 + 1)):
+        if(Number % i == 0):
+            count = count + 1
+            break
+
+    if (count == 0 and Number != 1):
+        print(" %d" %Number, end = '  ')
+-----------
+
+
 Activity 12
 Write a script that calculates the greatest common denominator between two numbers.
+def gcd(a, b):
+  
+    # Everything divides 0
+    if (a == 0):
+        return b
+    if (b == 0):
+        return a
+  
+    # base case
+    if (a == b):
+        return a
+  
+    # a is greater
+    if (a > b):
+        return gcd(a-b, b)
+    return gcd(a, b-a)
 
-For example, given the numbers 18 and 27, the greatest common denominator is 9.
+------------
+
+
 
 Activity 13
 Write a Python script that computes the frequency of each digit in a given integer.
+user = str(input("Please enter an integer: "))
+count1 = 0
+count2 = 0
+count3 = 0 
+count4 = 0
+count5 = 0 
+count6 = 0
+count7 = 0
+count8 = 0 
+count9 = 0
+for i in range(0,len(user)):
+    if (user[i])== "1":
+        count1 += 1
+    if (user[i])== "2":
+        count2 += 1
+    if (user[i])== "3":
+        count3 += 1
+    if (user[i])== "4":
+        count4 += 1
+    if (user[i])== "5":
+        count5 += 1
+    if (user[i])== "6":
+        count6 += 1
+    if (user[i])== "7":
+        count7 += 1
+    if (user[i])== "8":
+        count8 += 1
+    if (user[i])== "9":
+        count9 += 1
+print ("1 appeared", (count1), "times")
+print ("2 appeared", (count2), "times")
+print ("3 appeared", (count3), "times")
+print ("4 appeared", (count4), "times")
+print ("5 appeared", (count5), "times")
+print ("6 appeared", (count6), "times")
+print ("7 appeared", (count7), "times")
+print ("8 appeared", (count8), "times")
+print ("9 appeared", (count9), "times")
 
-For example, if the input number is 334, the output should be:
 
-3 occurs 2 times
-4 occurs 1 time
+
+-------
+
 Activity 14
 Write a script that calculates the lowest common multiple of two given integers.
+a=int(input("ENTER A FIRST NUMBER "))
 
-For example, given the values 4 and 6, the lowest common multiple is 12.
+b=int(input("ENTER THE SECOND NUMBER "))
+
+c=a*b
+
+for i in range(1,c+1):
+    if (i%a==0 and i%b==0):
+        print ("THE LCM IS = ",i)
+        break
+        
+--------
 
 Activity 15
 Write a Python script that determines if an input number can be expressed as the sum of two prime numbers.
 
-For example, the number 10 can be expressed as the sum of two prime numbers:
 
-10 = 3 + 7 : both prime numbers
-10 = 5 + 5 : both prime numbers
-However, the number 11 cannot be:
+Number = int(input('Enter the Number : '))
 
-11 = 1 + 10 : neither 1 nor 10 are prime numbers
-11 = 2 + 9 : 9 is not a prime number
-11 = 3 + 8 : 8 is not a prime number
-11 = 4 + 7 : 4 is not a prime number
-11 = 5 + 6 : 6 is not a prime number
+arr = []
+
+for i in range(2, Number):
+    flag = 0
+    for j in range(2, i):
+        if i % j == 0:
+            flag = 1
+    if flag == 0:
+        arr.append(i)
+
+        
+flag = 0
+for i in range(len(arr)):
+    for j in range(i + 1, len(arr)):
+
+        if arr[i] + arr[j] == Number:
+            flag = 1
+            print(str(arr[i]) + " and " + str(arr[j]) + ' are prime numbers when added gives ' + str(Number))
+            break
+if flag == 0:
+    print('No Prime numbers can give sum of ' + str(Number))
+    
+-------------
