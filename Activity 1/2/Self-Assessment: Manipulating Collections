@@ -1,0 +1,31 @@
+Write a program that performs the following steps:
+
+Define a tuple that contains 12 individual numbers.
+Split the items in the tuple into three new lists, so each list includes four items from the original tuple.
+Reverse the values in each list and display the results.
+For example, if you start with the tuple (4,1,2,3,5,7,9,0,-1), you should end up with the lists [2,1,4], [7,5,3], and [-1,0,9]
+
+t = (1,2,3,4,5,6,7,8,9,10,11,12)
+x = list(t)
+l = []
+m = []
+n = []
+l.append(x[0])
+l.append(x[1])
+l.append(x[2])
+l.append(x[3])
+l.reverse()
+print (l)
+m.append(x[4])
+m.append(x[5])
+m.append(x[6])
+m.append(x[7])
+m.reverse()
+print(m)
+n.append(x[8])
+n.append(x[9])
+n.append(x[10])
+n.append(x[11])
+n.reverse()
+print (n)
+
