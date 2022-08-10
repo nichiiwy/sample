@@ -70,7 +70,13 @@ storage = {
     "emergency jar" : 150
 }
  
+storage["freezer"] = ["ice cubes", "ice cream", "pepperoni pizza"]
 
+storage["cupboard"].sort()
+
+storage["freezer"].append("cream")
+
+storage["emergency jar"] -= 25
 
 
 ----------
