@@ -1,0 +1,110 @@
+Step 1: Normalize the Letter Casing
+Because all content in Python is case-sensitive, start by normalizing the case so that all characters are in the same case.
+
+lower = s.lower()
+print (lower)
+
+----------
+
+Step 2: Split the String into Words
+Using the str.split() method, divide the s_lower string into separate words. The output should be a list of strings.
+Store the results in a list called words.
+
+----------
+
+Step 3: Count the Words
+Use the len method to return the number of words in the string.
+
+At this point, for the initial string, the count should be 92; this includes duplicate instances of words.
+words = list()
+split = str.split(s_lower)
+print (len(words))
+
+----------
+Step 4: Count the Distinct Words
+Use a set to compute the number of distinct words in the string, meaning that only one instance of each word is counted and duplicates are ignored.
+
+At this point, for the initial string, the count of distinct words should be 75.
+
+wordset = set(words)
+unique = len(wordset)
+
+----------
+Step 5: Compute the Word Frequencies
+The next step is to compute the frequency of the distinct words in our string. 
+In this step, we look at the list of words (including duplicates) and count each instance of each word. 
+The result will be a dictionary where the keys are the distinct words in the list and the values are the number of times each word appears in the list.
+
+d = dict()
+for word in words:
+    if word not in d:
+        d[word] = 1
+    else:
+        d[word] += 1
+print (d)
+
+----------
+Step 6: Remove Punctuation Marks
+To fix the problems caused by punctuation, we need to remove the punctuation marks from the items in the list.
+
+import string
+punctuation_list = list(string.punctuation)
+print (punctuation_list)
+
+print (words)
+w_clean = list()
+
+for word in words:
+    if len(word) <= 1:
+        w_clean.append(word)
+    else:
+        for p in punctuation_list:
+            if p in word:
+                word = word.replace(p,"")
+        w_clean.append(word)
+print (w_clean)
+print (len(w_clean))
+
+----------
+
+Step 7: Put It All Together
+Finally, create a single script that performs all of the following operations on the original s string.
+
+Convert the string to lowercase characters.
+Split the lowercase string into individual words.
+Remove the punctuation from the lowercase words. Assume that all punctuation is either the first character or the last character of each item in the list.
+Perform a count analysis on the words without punctuation characters.
+Display the dictionary with the word counts and the number of distinct words in the original string.
+
+s_lower = s.lower()
+split = str.split(s_lower)
+wordset = set(words)
+unique = len(wordset)
+
+d = dict()
+for word in words:
+    if word not in d:
+        d[word] = 1
+    else:
+        d[word] += 1
+
+
+import string
+punctuation_list = list(string.punctuation)
+print (punctuation_list)
+
+print (words)
+w_clean = list()
+
+for word in words:
+    if len(word) <= 1:
+        w_clean.append(word)
+    else:
+        for p in punctuation_list:
+            if p in word:
+                word = word.replace(p,"")
+        w_clean.append(word)
+        
+print (w_clean)
+print ("there are", (unique), "unique words")
+print ("There are a total of", (len(w_clean)), characters)
