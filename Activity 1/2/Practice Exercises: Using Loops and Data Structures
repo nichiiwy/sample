@@ -1,0 +1,138 @@
+Activity 1
+Prompt the user to answer a series of 3-5 questions about themselves (such as their name, their age, their birthdate, or where they live) and save the answers in a list. Display the results to the user.
+
+
+t = str(input("What is your age: "))
+u = str(input("When is your birthday: "))
+v = str(input("Where do you live: "))
+
+list = []
+list.append(t)
+list.append(u)
+list.append(v)
+
+print (list)
+
+----------
+
+Activity 2
+Present the user with an existing list of items (such as the list created in the previous activity) and prompt the user for 2-4 more items to add to the list. Update the list with the new items and display the updated list.
+
+list = ["Kobe", "Lebron", "michael jackson"]
+add = str(input("Add one name to the HOF: "))
+
+list.append(add)
+print (list)
+----------
+
+Activity 3
+Present the user with a list of 7-9 items (such as the list created in the previous activities) and prompt them to enter one item to delete from the list. Delete the named item from the list and display the updated list.
+
+list = ["Kobe", "Lebron", "michael jackson"]
+d = str(input("Select one item to remove from the hall of fame: "))
+print ([i for i in list if i != d])
+
+----------
+
+Activity 4
+Present the user with a list of 7-9 items (such as the list created in the previous activities) and prompt them to select one item from the list to update, along with the new value for that item. Change the item's value and display the new list to the user.
+
+
+list = ["Kobe", "Lebron", "michael jackson", "Duncan", "Shaq", "Kareem"]
+update = str(input("Select one name to change: "))
+new = str(input("Change to: "))
+
+for i in range(len(list)):
+    if list[i] == update:
+        list [i] = new
+        print (list)
+        
+----------
+
+Activity 5
+Create four separate tuples of data.
+
+One tuple with a person's first name and last name
+A second tuple with the person's current profession
+A third tuple with the person's current address
+A fourth tuple with the person's previous address
+Combine all tuples into a single, new tuple that contains all data from the original tuples.
+
+first_last = ("firstname", "lastname")
+prof = ("Doctor",)
+address = ("21 Saint Street, Boston, MA",)
+padd = ("35 Saint Street, Carrboro, NC",)
+
+
+new = (first_last + address + prof + padd)
+print (new)
+
+----------
+
+Activity 6
+Create a computer program that completes the following tasks:
+
+It prompts the user for a series of 5-10 integers.
+The user must be prompted for a minimum of 5 numbers.
+After the user has entered 5 numbers, the program should allow the user to stop entry or enter another number.
+When the user chooses to stop or after 10 numbers have been entered, the program stops prompting for values and performs the following calculations:
+the product of the integers
+the average of the integers
+the sum of the integers
+the min of the integers
+the max of the integers
+After performing the calculations, the program should display the following to the user:
+the values the user entered
+each of the calculations, using a phrase that identifies the value
+Do not use the built-in sum, min, or max functions
+
+
+
+-----------
+
+Activity 7
+Create a computer program that identifies all the strings with more than two characters in an input list of strings and stores the results in another list.
+
+Create a program that starts with a list of strings, identifies all the strings with more than two characters, stores the results in another list, and displays the new list.
+
+a = ["a", "bc", "rye", "hello", "c", ""]
+list = []
+for x in a:
+    if len(x) > 2:
+        list.append(x)
+print (list)
+----------
+
+
+
+Activity 8
+Write a computer program using the steps below:
+
+Create a dictionary with at least three key/value pairs.
+Ask the user for a value.
+Display all key/value pairs in the dictionary that include the user-specified value.
+If the value does not exist in the dictionary, display a user-friendly error message.
+For example:
+
+dictionary: freq_count = {"hello":4,"world":4,"I":1,"am": 2,"Martha:"3"}
+user input: 4
+output: {"hello":4,"world":4}
+
+
+
+
+
+
+Activity 9
+Create a computer program that does the following:
+
+Define a set with at least 5 elements.
+Ask the user for a value.
+Ask the user for an operation (add or remove).
+If the operation is remove:
+If the value exists in the set, remove the value from the set and display the updated set to the user.
+If the value does not exist in the set, display a user-friendly error message.
+If the operation is add:
+If the value exists in the set, display a user-friendly error message.
+If the value does not exist in the set, add the value to the set and display the updated set to the user.
+Repeat until the user enters "quit" (upper or lower case).
