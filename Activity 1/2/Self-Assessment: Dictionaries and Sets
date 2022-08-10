@@ -16,6 +16,9 @@ my_set = {"Kobe", 24, "Bryant", 23, True}
 value = input("Enter an input: ")
 op = str(input("What to do with the input? ('Add'/'Remove')"))
 
+while input != "quit" or input != "Quit":
+
+
 if op == "add" or op == "Add":
     if value in my_set:
         print ("Error, input already exists")
@@ -28,4 +31,6 @@ if op == "Remove" or op == "remove":
         print (my_set)
     else:
         print ("Error, input not in set")
+        
+ break
         
