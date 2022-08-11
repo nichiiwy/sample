@@ -1,0 +1,106 @@
+Hooks:
+
+
+add(...)
+  add(type, function)
+ 
+  Register a new hook function. Hook functions should take one argument: an information string that can be parsed with hooks.parse_info
+
+build_info(...)
+  build_info(format, args)
+ 
+  Returns hook information from a string format and a tuple of values forthe format. Format arguments must be space-separated. They include: ch, rm, obj, ex, sk, str, int, dbl.
+
+parse_info(...)
+  parse_info(info)
+  Returns a tuple of parsed hook information.
+
+remove(...)
+  remove(type, function)
+  Unregister a hook function.
+  
+run(...)
+  run(hooktypes)
+  Runs hooks registered to the given type.
+
+-------------------
+Python Classes/Objects
+
+Almost everything in Python is an object, with its properties and methods.
+A Class is like an object constructor, or a "blueprint" for creating objects.
+To create a class: use keyword "class"
+
+class MyClass:
+  x = 5
+  
+Now we can use the class named MyClass to create objects:
+p1 = MyClass()
+print(p1.x)
+
+The __init__() Function
+To understand the meaning of classes we have to understand the built-in __init__() function.
+All classes have a function called __init__(), which is always executed when the class is being initiated.
+Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created:
+
+Example
+Create a class named Person, use the __init__() function to assign values for name and age:
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("John", 36)
+
+print(p1.name)
+print(p1.age)
+
+Object Methods
+Objects can also contain methods. Methods in objects are functions that belong to the object.
+
+class Person:
+  def __init__(self,name,age):
+  self.name = name
+  self.age = age
+  
+  def myfunc(self):
+    print("Hello my name is" + self.name)
+
+p1 = Person(John, 36)
+p1.myfunc()
+
+Note: The self parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.
+
+The self Parameter
+It does not have to be named self , you can call it whatever you like, but it has to be the first parameter of any function in the class:
+
+class Person:
+  def __init__(mysillyobject, name, age):
+    mysillyobject.name = name
+    mysillyobject.age = age
+
+  def myfunc(abc):
+    print("Hello my name is " + abc.name)
+
+p1 = Person("John", 36)
+p1.myfunc()
+
+Modify:
+p1.age = 40
+del p1.age
+del p1
+
+----------
+
+Pseudocode
+What is Pseudocode?
+Pseudocode is a representation of an algorithm using statements based on a human language, but without the constraints of terminology and structure that are part of real programming languages. 
+You can think of pseudocode as a blend of normal human words and generic computer code. 
+You can use if-statements for conditionals, while- and for-statements for loops, and generic statements for declaring variables. 
+The process is like creating a guide for your program. It will be a step-by-step process for your program when you start coding.
+
+Advantages:
+Identify all instructions that the program will need to solve the problem, (variables, constants, and operations that the program will need)
+You create a structure that will work regardless of what the final program will look like or what language you will use to write it.
+Everyone on the development team can understand what the program will do
+
