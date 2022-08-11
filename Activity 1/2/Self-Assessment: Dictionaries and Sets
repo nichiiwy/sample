@@ -12,25 +12,28 @@ If the value does not exist in the set, add the value to the set and display the
 Repeat until the user enters "quit."
 When the user enters "quit," display the original set, the final version of the updated set, and the difference between the two sets.
 
-my_set = {"Kobe", 24, "Bryant", 23, True}
+
+my_set = {"kobe", "24", "bryant", "23", True}
+new_set = my_set.copy()
 value = input("Enter an input: ")
-op = str(input("What to do with the input? ('Add'/'Remove')"))
-
-while input != "quit" or input != "Quit":
+op = str(input("What to do with the input? ('Add'/'Remove'): "))
 
 
-if op == "add" or op == "Add":
-    if value in my_set:
-        print ("Error, input already exists")
-    else:
-        my_set.add(value)
-        print (my_set)
-if op == "Remove" or op == "remove":
-    if value in my_set:
-        my_set.discard(value)
-        print (my_set)
-    else:
-        print ("Error, input not in set")
-        
- break
+while op != "quit":
+    if op == "add" or op == "Add":
+        if value in my_set:
+            print ("Error, input already exists")
+        else:
+            my_set.add(value)
+    if op == "Remove" or op == "remove":
+        if value in my_set:
+            my_set.discard(value)
+            print (my_set)
+        else:
+            print ("Error, input not in set")
+    value = input("Enter an input: ")
+    op = (input("What to do with the input? ('Add'/'Remove' or 'quit' to exit): ")).lower()
+
+print ("The old set is", (my_set))
+print ("The new set is", (new_set))
         
