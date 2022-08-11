@@ -84,8 +84,36 @@ the max of the integers
 After performing the calculations, the program should display the following to the user:
 the values the user entered
 each of the calculations, using a phrase that identifies the value
-Do not use the built-in sum, min, or max functions
 
+l = []
+while len(l) < 5:
+    asks = int(input("Please input a number: "))
+    l.append(asks)
+    
+cont = input("Continue? (Yes/No): ").lower()
+if cont == "yes" and len(l) < 10: 
+    ask1 = int(input("Please input a number: "))
+    l.append(ask1)
+    cont = input("Continue? (Yes/No): ").lower()
+
+l.sort()
+product = 0
+sum = 0 
+average = 0 
+
+for i in l:
+    if product == 0:
+        product = i
+    else:
+        product *= i
+    sum += i 
+
+print(l)
+print(product)
+print(sum)
+print("the min number is", (l[0]))
+print("the max number is", (l[-1]))
+    
 
 
 -----------
