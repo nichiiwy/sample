@@ -1,0 +1,36 @@
+s = str(input("Enter text here "))
+
+
+s_lower = s.lower()
+words = str.split(s_lower)
+wordset = set(words)
+unique = len(wordset)
+
+d = dict()
+for word in words:
+    if word not in d:
+        d[word] = 1
+    else:
+        d[word] += 1
+
+import string
+punctuation_list = list(string.punctuation)
+
+w_clean = list()
+
+for word in words:
+    if len(word) <= 1:
+        w_clean.append(word)
+    else:
+        for p in punctuation_list:
+            if p in word:
+                word = word.replace(p,"")
+        w_clean.append(word)
+
+ask = input("What word frequency do you want to know: ")
+print ("The frequency is of", (ask), "is", (d[ask]))
+
+al = dict(sorted(d.items(), key = lambda item: item[0]))
+print (al)
+des = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
+print (des)
